@@ -1,6 +1,9 @@
-# nx-template
+# intercept-game
 
-This template repository is a re-build of the [nx-workspace-template](https://github.com/bradtaniguchi/nx-workspace-template), which focuses on Angular development. This version will focus on React development, and a straight forward CI/CD pipeline.
+A web-game based on the [Milton Bradley board-game "Dogfight"](https://boardgamegeek.com/boardgame/1509/dogfight).
+
+This is a rebuild of the initial setup using Angular:
+https://github.com/bradtaniguchi/intercept-game-ng
 
 ## License
 
