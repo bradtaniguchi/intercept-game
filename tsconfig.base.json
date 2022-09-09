@@ -18,6 +18,7 @@
       "@intercept-game/common": ["libs/common/src/index.ts"],
       "@intercept-game/common-react": ["libs/common-react/src/index.ts"],
       "@intercept-game/game": ["libs/game/src/index.ts"],
+      "@intercept-game/game-react": ["libs/game-react/src/index.ts"],
       "@intercept-game/storybook": ["libs/storybook/src/index.ts"]
     }
   },
