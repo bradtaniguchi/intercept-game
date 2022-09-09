@@ -22,10 +22,6 @@
   description: A non-code related task
   color: 'ffffff'
 
-- name: blog
-  description: An issue that represents a topic to write a blog post about
-  color: '03a5fc'
-
 # realms
 - name: realm:API
   description: Issue representing changes to an api
