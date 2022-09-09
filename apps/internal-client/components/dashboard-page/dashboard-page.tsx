@@ -14,7 +14,7 @@ import {
   getProjectsByTarget,
   useConfig,
   useNxGraph,
-} from '@nx-template/common-react';
+} from '@intercept-game/common-react';
 import { memo, useMemo } from 'react';
 
 const spinner = (
