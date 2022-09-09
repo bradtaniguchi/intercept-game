@@ -84,12 +84,12 @@
               "options": {
                 "commands": [
                   {
-                    "command": "mkdir dist/apps/internal-client/exported/nx-template",
+                    "command": "mkdir dist/apps/internal-client/exported/intercept-game",
                     "description": "Make missing directories"
                   },
                   {
-                    "command": "cp -r dist/apps/internal-client/exported/_next dist/apps/internal-client/exported/nx-template/",
-                    "description": "Copy files into nx-template sub-folder for testing"
+                    "command": "cp -r dist/apps/internal-client/exported/_next dist/apps/internal-client/exported/intercept-game/",
+                    "description": "Copy files into intercept-game sub-folder for testing"
                   },
                   {
                     "command": "npx lhci autorun --config=./.lighthouse/lighthouserc.js --collect.staticDistDir=./dist/apps/internal-client/exported",
@@ -112,7 +112,7 @@
             },
             {
               "file": "apps/internal-client/components/dashboard-page/dashboard-page.tsx",
-              "hash": "95a88d95be6e677fe306901cc8ceb3b79430475d",
+              "hash": "ce61e2bc10ea00919d4bd52be83031b03cadfac0",
               "deps": [
                 "npm:@mui/icons-material",
                 "npm:@mui/material",
@@ -134,7 +134,7 @@
             },
             {
               "file": "apps/internal-client/next.config.js",
-              "hash": "afd1bf67ace5e5e405a08c19ab699f7c460fd028",
+              "hash": "c8d91ffc7c37947dada231c19b93801954c7bb6c",
               "deps": [
                 "npm:@nrwl/next",
                 "npm:@sentry/nextjs"
@@ -149,7 +149,7 @@
             },
             {
               "file": "apps/internal-client/pages/_document.tsx",
-              "hash": "65fdc1cbb1338a782f6233f299fb14e611d7fa60",
+              "hash": "64bca4bb7985698c3f2aab673f00a9fd740b8d45",
               "deps": [
                 "npm:react",
                 "npm:next",
@@ -174,7 +174,7 @@
             },
             {
               "file": "apps/internal-client/pages/index.tsx",
-              "hash": "fafbea9a176e69c72b3116a21b7d87d158376c97",
+              "hash": "155a39399c0c1f2fb4f40dca3927a8c82e513d12",
               "deps": [
                 "npm:styled-components",
                 "common-react",
@@ -187,7 +187,7 @@
             },
             {
               "file": "apps/internal-client/project.json",
-              "hash": "8894d4036b79d663947f1ce4c301b12d940cea22"
+              "hash": "337c1a848c817f8ad48368eb71fbcd7c5ab14493"
             },
             {
               "file": "apps/internal-client/public/.gitkeep",
@@ -211,7 +211,7 @@
             },
             {
               "file": "apps/internal-client/sentry.client.config.js",
-              "hash": "107558b057878933225eadfabd2d1ce06f1228b6",
+              "hash": "09f7c52f3f95dc6907fdb47fdbeff354867e30ec",
               "deps": [
                 "npm:@sentry/nextjs"
               ]
@@ -366,7 +366,7 @@
             },
             {
               "file": "libs/common-react/package.json",
-              "hash": "2dd5d55d0b94246e35c02731745fcaab54edf696"
+              "hash": "b9f549a8fa4d69843afe074dd8ccb9d5b90a18ce"
             },
             {
               "file": "libs/common-react/project.json",
@@ -483,7 +483,7 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-logger.ts",
-              "hash": "832d8c2a257ef059aa9644e30720cb59e71362b8",
+              "hash": "e95acb200def421f0df444960249141d8ae90fbb",
               "deps": [
                 "common",
                 "npm:react"
@@ -686,7 +686,7 @@
             },
             {
               "file": "libs/storybook/package.json",
-              "hash": "e11efb1c82d82a7f137a0585c943452d65202408"
+              "hash": "d11f91f93e7afb2ff329d118727ae1e232b92ffb"
             },
             {
               "file": "libs/storybook/project.json",
@@ -813,7 +813,7 @@
             },
             {
               "file": "libs/common/package.json",
-              "hash": "36788b226c6c19d105c48c4e931beea1759afc5c"
+              "hash": "e2729c8a7a9555c70b55f0b074d67c590c18cc91"
             },
             {
               "file": "libs/common/project.json",
