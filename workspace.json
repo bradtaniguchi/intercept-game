@@ -4,6 +4,7 @@
   "projects": {
     "common": "libs/common",
     "common-react": "libs/common-react",
+    "game": "libs/game",
     "internal-client": "apps/internal-client",
     "storybook": "libs/storybook"
   }
