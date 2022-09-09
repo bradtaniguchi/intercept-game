@@ -5,6 +5,8 @@
     "common": "libs/common",
     "common-react": "libs/common-react",
     "game": "libs/game",
+    "game-client": "apps/game-client",
+    "game-client-e2e": "apps/game-client-e2e",
     "game-react": "libs/game-react",
     "internal-client": "apps/internal-client",
     "storybook": "libs/storybook"
