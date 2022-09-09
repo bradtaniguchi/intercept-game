@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "nx-template",
+  "npmScope": "intercept-game",
   "affected": {
     "defaultBase": "main"
   },

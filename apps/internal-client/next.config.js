@@ -16,7 +16,7 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-  assetPrefix: isProd ? '/nx-template/' : '',
+  assetPrefix: isProd ? '/intercept-game/' : '',
 };
 
 module.exports = withNx(
