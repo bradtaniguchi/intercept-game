@@ -1,7 +1,7 @@
-import { MAX_BOARD_Y } from './board-y';
+import { BoardY, MAX_BOARD_Y } from './board-y';
 import { BoardRow, isBoardRow } from './board-row';
 import { BoardLocation } from './board-location';
-import { BoardX, BoardY, MAX_BOARD_X } from '.';
+import { BoardX, MAX_BOARD_X } from './board-x';
 
 /**
  * The board grid is a 2D representation of the board,
