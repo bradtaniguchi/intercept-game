@@ -27,6 +27,10 @@
   description: Issue representing changes to an api
   color: 'f9f9c5'
 
+- name: realm:code
+  description: Issue representing a code task
+  color: '4245f5'
+  
 - name: realm:DB
   description: Issue representing changes to the database
   color: 'c5f9ed'
