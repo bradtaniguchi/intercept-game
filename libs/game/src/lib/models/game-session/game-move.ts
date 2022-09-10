@@ -6,7 +6,7 @@ import { Plane } from '../plane/plane';
 import { isPlaneId, PlaneId } from '../plane/plane-id';
 import { createGameMoveId, GameMoveId } from './game-move-id';
 import { BoardX } from '../board/board-x';
-import { BoardY } from '..';
+import { BoardY } from '../board/board-y';
 
 /**
  * Represents a move within a game-session. Multiple of these
