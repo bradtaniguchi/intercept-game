@@ -1,5 +1,4 @@
 import {
-  BoardGrid,
   BoardLocation,
   BoardLocationStr,
   BoardX,
