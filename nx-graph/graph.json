@@ -1,6 +1,83 @@
 {
   "graph": {
     "nodes": {
+      "game-client-e2e": {
+        "name": "game-client-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/game-client-e2e",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/game-client-e2e/src",
+          "projectType": "application",
+          "targets": {
+            "e2e": {
+              "executor": "@nrwl/cypress:cypress",
+              "options": {
+                "cypressConfig": "apps/game-client-e2e/cypress.json",
+                "devServerTarget": "game-client:serve:development"
+              },
+              "configurations": {
+                "production": {
+                  "devServerTarget": "game-client:serve:production"
+                }
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/game-client-e2e/**/*.{js,ts}"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "implicitDependencies": [
+            "game-client"
+          ],
+          "files": [
+            {
+              "file": "apps/game-client-e2e/.eslintrc.json",
+              "hash": "696cb8b12127425419f6d2809c5f15a5963d86de"
+            },
+            {
+              "file": "apps/game-client-e2e/cypress.json",
+              "hash": "9479cd4c334b763a535aa957945cfa4a399aa7d8"
+            },
+            {
+              "file": "apps/game-client-e2e/project.json",
+              "hash": "617ed8deaa7647071f29514d261a207db7045ec6"
+            },
+            {
+              "file": "apps/game-client-e2e/src/fixtures/example.json",
+              "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
+            },
+            {
+              "file": "apps/game-client-e2e/src/integration/app.spec.ts",
+              "hash": "2ea61cdaca3007126b0dbc5706d4854ebfc02454"
+            },
+            {
+              "file": "apps/game-client-e2e/src/support/app.po.ts",
+              "hash": "32934246969c2ecb827ac05677785933a707a54d"
+            },
+            {
+              "file": "apps/game-client-e2e/src/support/commands.ts",
+              "hash": "310f1fa0e043ffebbbcf575c5a4d17f13a6b14d6"
+            },
+            {
+              "file": "apps/game-client-e2e/src/support/index.ts",
+              "hash": "3d469a6b6cf31eb66117d73e278bcf74f398f1db"
+            },
+            {
+              "file": "apps/game-client-e2e/tsconfig.json",
+              "hash": "c4f818ecd40fbce82c3e08bf25cde3043970f8f3"
+            }
+          ]
+        }
+      },
       "internal-client": {
         "name": "internal-client",
         "type": "app",
@@ -241,6 +318,75 @@
             {
               "file": "apps/internal-client/tsconfig.spec.json",
               "hash": "23a8088f2767edee8d855ed96148c2ec01fda8fc"
+            }
+          ]
+        }
+      },
+      "game-react-e2e": {
+        "name": "game-react-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/game-react-e2e",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/game-react-e2e/src",
+          "projectType": "application",
+          "targets": {
+            "e2e": {
+              "executor": "@nrwl/cypress:cypress",
+              "options": {
+                "cypressConfig": "apps/game-react-e2e/cypress.json",
+                "devServerTarget": "game-react:storybook"
+              },
+              "configurations": {
+                "ci": {
+                  "devServerTarget": "game-react:storybook:ci"
+                }
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/game-react-e2e/**/*.{js,ts}"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "implicitDependencies": [
+            "game-react"
+          ],
+          "files": [
+            {
+              "file": "apps/game-react-e2e/.eslintrc.json",
+              "hash": "696cb8b12127425419f6d2809c5f15a5963d86de"
+            },
+            {
+              "file": "apps/game-react-e2e/cypress.json",
+              "hash": "2bbbfd8a870c07b9bab0cb282f21c753ed658570"
+            },
+            {
+              "file": "apps/game-react-e2e/project.json",
+              "hash": "b722f4da63c9fdaa99b7e837eb912f65330fbe6a"
+            },
+            {
+              "file": "apps/game-react-e2e/src/fixtures/example.json",
+              "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
+            },
+            {
+              "file": "apps/game-react-e2e/src/support/commands.ts",
+              "hash": "310f1fa0e043ffebbbcf575c5a4d17f13a6b14d6"
+            },
+            {
+              "file": "apps/game-react-e2e/src/support/index.ts",
+              "hash": "3d469a6b6cf31eb66117d73e278bcf74f398f1db"
+            },
+            {
+              "file": "apps/game-react-e2e/tsconfig.json",
+              "hash": "c4f818ecd40fbce82c3e08bf25cde3043970f8f3"
             }
           ]
         }
@@ -561,6 +707,320 @@
           ]
         }
       },
+      "game-client": {
+        "name": "game-client",
+        "type": "app",
+        "data": {
+          "root": "apps/game-client",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/game-client",
+          "projectType": "application",
+          "targets": {
+            "build": {
+              "executor": "@nrwl/next:build",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "defaultConfiguration": "production",
+              "options": {
+                "root": "apps/game-client",
+                "outputPath": "dist/apps/game-client"
+              },
+              "configurations": {
+                "development": {},
+                "production": {}
+              },
+              "dependsOn": [
+                "^build"
+              ]
+            },
+            "serve": {
+              "executor": "@nrwl/next:server",
+              "defaultConfiguration": "development",
+              "options": {
+                "buildTarget": "game-client:build",
+                "dev": true
+              },
+              "configurations": {
+                "development": {
+                  "buildTarget": "game-client:build:development",
+                  "dev": true
+                },
+                "production": {
+                  "buildTarget": "game-client:build:production",
+                  "dev": false
+                }
+              }
+            },
+            "export": {
+              "executor": "@nrwl/next:export",
+              "options": {
+                "buildTarget": "game-client:build:production"
+              }
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/apps/game-client"
+              ],
+              "options": {
+                "jestConfig": "apps/game-client/jest.config.ts",
+                "passWithNoTests": true
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/game-client/**/*.{ts,tsx,js,jsx}"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/game-client/.eslintrc.json",
+              "hash": "3e7f73889347f14dee65dd2817caeca44a880a73"
+            },
+            {
+              "file": "apps/game-client/index.d.ts",
+              "hash": "7ba08fa17ccbb3d5eaa4d9c7b435bd44ff43f330"
+            },
+            {
+              "file": "apps/game-client/jest.config.ts",
+              "hash": "aa6acba72eade1ed55b7c40dd3e929c1e361897b"
+            },
+            {
+              "file": "apps/game-client/next-env.d.ts",
+              "hash": "4f11a03dc6cc37f2b5105c08f2e7b24c603ab2f4"
+            },
+            {
+              "file": "apps/game-client/next.config.js",
+              "hash": "7922ea7e424f288b2b5118330010a9abb0cf1598",
+              "deps": [
+                "npm:@nrwl/next"
+              ]
+            },
+            {
+              "file": "apps/game-client/pages/_app.tsx",
+              "hash": "ed56028a7b2672860fb2ff06c305801af71f78cc",
+              "deps": [
+                "npm:next"
+              ]
+            },
+            {
+              "file": "apps/game-client/pages/_document.tsx",
+              "hash": "ff98606e7f61042e94592319f0ed27fb21ee34d1",
+              "deps": [
+                "npm:react",
+                "npm:next",
+                "npm:styled-components"
+              ]
+            },
+            {
+              "file": "apps/game-client/pages/index.tsx",
+              "hash": "4b86357f67f2271115a20474b0c94fbf4bb91c13",
+              "deps": [
+                "npm:styled-components"
+              ]
+            },
+            {
+              "file": "apps/game-client/pages/styles.css",
+              "hash": "7fe31fd45429117eb5aeef6a5d9332da9d9dd9c0"
+            },
+            {
+              "file": "apps/game-client/project.json",
+              "hash": "11bfc21d24ed6d78a9093e320dfe74cc0730c259"
+            },
+            {
+              "file": "apps/game-client/public/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/game-client/specs/index.spec.tsx",
+              "hash": "42c94022afd1c1c396f85b24a08d75984b8adb9c",
+              "deps": [
+                "npm:react",
+                "npm:@testing-library/react"
+              ]
+            },
+            {
+              "file": "apps/game-client/tsconfig.json",
+              "hash": "cadb8cda700070fec16641a4c734213862573c1c"
+            },
+            {
+              "file": "apps/game-client/tsconfig.spec.json",
+              "hash": "23a8088f2767edee8d855ed96148c2ec01fda8fc"
+            }
+          ]
+        }
+      },
+      "game-react": {
+        "name": "game-react",
+        "type": "lib",
+        "data": {
+          "root": "libs/game-react",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "libs/game-react/src",
+          "projectType": "library",
+          "tags": [],
+          "targets": {
+            "build": {
+              "executor": "@nrwl/web:rollup",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/libs/game-react",
+                "tsConfig": "libs/game-react/tsconfig.lib.json",
+                "project": "libs/game-react/package.json",
+                "entryFile": "libs/game-react/src/index.ts",
+                "external": [
+                  "react/jsx-runtime"
+                ],
+                "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+                "compiler": "babel",
+                "assets": [
+                  {
+                    "glob": "libs/game-react/README.md",
+                    "input": ".",
+                    "output": "."
+                  }
+                ]
+              },
+              "dependsOn": [
+                "^build"
+              ]
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "libs/game-react/**/*.{ts,tsx,js,jsx}"
+                ]
+              }
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/libs/game-react"
+              ],
+              "options": {
+                "jestConfig": "libs/game-react/jest.config.ts",
+                "passWithNoTests": true
+              }
+            },
+            "storybook": {
+              "executor": "@nrwl/storybook:storybook",
+              "options": {
+                "uiFramework": "@storybook/react",
+                "port": 4400,
+                "config": {
+                  "configFolder": "libs/game-react/.storybook"
+                }
+              },
+              "configurations": {
+                "ci": {
+                  "quiet": true
+                }
+              }
+            },
+            "build-storybook": {
+              "executor": "@nrwl/storybook:build",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "uiFramework": "@storybook/react",
+                "outputPath": "dist/storybook/game-react",
+                "config": {
+                  "configFolder": "libs/game-react/.storybook"
+                }
+              },
+              "configurations": {
+                "ci": {
+                  "quiet": true
+                }
+              }
+            }
+          },
+          "files": [
+            {
+              "file": "libs/game-react/.babelrc",
+              "hash": "e513ea41ca325d74425a9a7d2bbbd2c4054d1c88"
+            },
+            {
+              "file": "libs/game-react/.eslintrc.json",
+              "hash": "734ddaceea447738208c9519158ad6b3062f3929"
+            },
+            {
+              "file": "libs/game-react/.storybook/main.js",
+              "hash": "b17a4cd6ebe5e3b9bf8f3b47328cfa969bc0fef5"
+            },
+            {
+              "file": "libs/game-react/.storybook/preview.js",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "libs/game-react/.storybook/tsconfig.json",
+              "hash": "286dc2f6355dd1648ce24735eb8e2f73812f43e0"
+            },
+            {
+              "file": "libs/game-react/jest.config.ts",
+              "hash": "175a6b835e6d731f348b1bf18695cd4648213930"
+            },
+            {
+              "file": "libs/game-react/package.json",
+              "hash": "2d1dd5bcd761da4b65d68b38d5540fc27ca9b30b"
+            },
+            {
+              "file": "libs/game-react/project.json",
+              "hash": "bc4497292bc31153b26668ad79132e5998d94248"
+            },
+            {
+              "file": "libs/game-react/README.md",
+              "hash": "48a3850eb31069300a8ad13dafb51cdd872691c6"
+            },
+            {
+              "file": "libs/game-react/src/index.ts",
+              "hash": "c4f0a61be1df9686abc943d15241422a98e600fd"
+            },
+            {
+              "file": "libs/game-react/src/lib/game-react.spec.tsx",
+              "hash": "3d7338c940f2920b8e47d108bacc5e61be34104e",
+              "deps": [
+                "npm:@testing-library/react"
+              ]
+            },
+            {
+              "file": "libs/game-react/src/lib/game-react.tsx",
+              "hash": "83d66378b8daab880bed8558a58ed1799806497f",
+              "deps": [
+                "npm:styled-components"
+              ]
+            },
+            {
+              "file": "libs/game-react/tsconfig.json",
+              "hash": "9fff9cc2db0cca15bc96bf1cde3e27146d3922f2"
+            },
+            {
+              "file": "libs/game-react/tsconfig.lib.json",
+              "hash": "2e54c51309bc084f59acb6b55604a4803b3fb238"
+            },
+            {
+              "file": "libs/game-react/tsconfig.spec.json",
+              "hash": "ff08addd60ff581234ec9423d2bb90f31d8166e8"
+            }
+          ]
+        }
+      },
       "storybook": {
         "name": "storybook",
         "type": "lib",
@@ -670,7 +1130,7 @@
             },
             {
               "file": "libs/storybook/.storybook/main.js",
-              "hash": "b274f2bef88b29d7aa5fc0f4b63c1fb83b8aba96"
+              "hash": "d208510acb95068da99626be8ad356ad472fd259"
             },
             {
               "file": "libs/storybook/.storybook/preview-head.html",
@@ -694,7 +1154,7 @@
             },
             {
               "file": "libs/storybook/README.md",
-              "hash": "c306e6e0eae27e2bfc81452ae718cc3303644c2f"
+              "hash": "2e02fbd3176bbb8855c450b7606e919cd1e92722"
             },
             {
               "file": "libs/storybook/src/index.ts",
@@ -844,8 +1304,16 @@
               "hash": "fde9fcff48dc13f65b4c6f88bbb2d5ceb2a16e92"
             },
             {
+              "file": "libs/common/src/lib/utils/get-id.spec.ts",
+              "hash": "1a131e1c17bf5f523d6530d9058974b596800eaa"
+            },
+            {
+              "file": "libs/common/src/lib/utils/get-id.ts",
+              "hash": "d1cb5ac3f252c82aadc32014eeff341c40d06dbb"
+            },
+            {
               "file": "libs/common/src/lib/utils/index.ts",
-              "hash": "97e7cd56dd8a44356ad42e260984b5ba73cd2efe"
+              "hash": "2c5250e0749b07a09903b23cede950e91baf8ce2"
             },
             {
               "file": "libs/common/tsconfig.json",
@@ -865,14 +1333,345 @@
             }
           ]
         }
+      },
+      "game": {
+        "name": "game",
+        "type": "lib",
+        "data": {
+          "root": "libs/game",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "libs/game/src",
+          "projectType": "library",
+          "targets": {
+            "build": {
+              "executor": "@nrwl/js:tsc",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/libs/game",
+                "tsConfig": "libs/game/tsconfig.lib.json",
+                "packageJson": "libs/game/package.json",
+                "main": "libs/game/src/index.ts",
+                "assets": [
+                  "libs/game/*.md"
+                ]
+              },
+              "dependsOn": [
+                "^build"
+              ]
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "libs/game/**/*.ts"
+                ]
+              }
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/libs/game"
+              ],
+              "options": {
+                "jestConfig": "libs/game/jest.config.ts",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "libs/game/.babelrc",
+              "hash": "cf7ddd99c615a064ac18eb3109eee4f394ab1faf"
+            },
+            {
+              "file": "libs/game/.eslintrc.json",
+              "hash": "9d9c0db55bb1e91c5f2e7b64a02bc6bf69fc7cb5"
+            },
+            {
+              "file": "libs/game/jest.config.ts",
+              "hash": "f138664d7cb904463b4a418ebca82dad8cdd2b85"
+            },
+            {
+              "file": "libs/game/package.json",
+              "hash": "1e81d6966f18f45e5411440e8b17cb720048d5f0"
+            },
+            {
+              "file": "libs/game/project.json",
+              "hash": "f34fde98cd743440bf24c4f845c9aa5aca5c85f6"
+            },
+            {
+              "file": "libs/game/README.md",
+              "hash": "b8c5cfc7cd116092a59fe4f26345630adfe5a9dc"
+            },
+            {
+              "file": "libs/game/src/index.ts",
+              "hash": "efb36b5cbe0761ecb2c5317b79268e110d295175"
+            },
+            {
+              "file": "libs/game/src/lib/game.spec.ts",
+              "hash": "20cf733d7ac786c29ea0916384669ff587b96452"
+            },
+            {
+              "file": "libs/game/src/lib/game.ts",
+              "hash": "a46f4648c5e99ed3db3ef505a29527773b47173a"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-entity-id.spec.ts",
+              "hash": "98bc80d26467600e5f22ac253beff295c1ae8285"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-entity-id.ts",
+              "hash": "4c1c578b1949d8c7e0e976872c20ff4bd575de14",
+              "deps": [
+                "npm:nanoid"
+              ]
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-entity.spec.ts",
+              "hash": "6627f943a394eaaa6f073be8660346ae5bcdc3bc"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-entity.ts",
+              "hash": "81671ff7e9477a882bd24003ffda403194b86517"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-grid.spec.ts",
+              "hash": "f0fa3d43d8deda0a508e7c7274e18326ba7de7ca"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-grid.ts",
+              "hash": "a07955bf7f231ca2fa4486d0a525cc27d57956dc"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-height.spec.ts",
+              "hash": "1ff0983f3663556f85c22a96117fccd113e3ba6d"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-height.ts",
+              "hash": "54854cdb01065eb3732a5bb46dc7908976353315"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-location.spec.ts",
+              "hash": "fb47436ae4cd9897a161706989d3d1fa17615f4d"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-location.ts",
+              "hash": "b86a5c0821ab84b13c5aba8d5e2b51213553a8d1"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-row.spec.ts",
+              "hash": "8b529cc5b8173211c71e943d3fe5bf24499a213a"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-row.ts",
+              "hash": "39a70fce8990788fa842102d651927c45aa9e249"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-x.spec.ts",
+              "hash": "42e10d4a59bd3f08e3c56d90c2ce49dc0476697d"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-x.ts",
+              "hash": "96b5ee416e4ad9754b4c414bbfab3a329fd8122a"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-y.spec.ts",
+              "hash": "e9b35d529cd7706056d30fc516c4a8093a791c28"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/board-y.ts",
+              "hash": "207a9c47ad927ed139602a208c4ef0dbc13e2049"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/direction.spec.ts",
+              "hash": "b2bcc591259ea138eb11e1d53af508572add09a6"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/direction.ts",
+              "hash": "47ac5e1a8e41eeb77e5cd5b66965216ca3b6a023"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/index.ts",
+              "hash": "fc5f46decc6e1a1071418b0363aaf09eb9d8a0aa"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/near-location.spec.ts",
+              "hash": "61727e4213e9f536e084101816496fd8c5ce1196"
+            },
+            {
+              "file": "libs/game/src/lib/models/board/near-location.ts",
+              "hash": "b87f090333aa398de66dc2e892f79a4b1d689b90"
+            },
+            {
+              "file": "libs/game/src/lib/models/card/defensive-card.spec.ts",
+              "hash": "152606d8deadd8c6eb13fa9bbdb0a0e25af786be"
+            },
+            {
+              "file": "libs/game/src/lib/models/card/defensive-card.ts",
+              "hash": "d94eedd08e0320df19859f72837b657bb77623dd"
+            },
+            {
+              "file": "libs/game/src/lib/models/card/index.ts",
+              "hash": "582541bcf385009bea1fbecbcb5e10815a25ac44"
+            },
+            {
+              "file": "libs/game/src/lib/models/card/offensive-card.spec.ts",
+              "hash": "2217549edd5667f218f298faf31e33b22f52d05e"
+            },
+            {
+              "file": "libs/game/src/lib/models/card/offensive-card.ts",
+              "hash": "6e71fe971ad8d3b6628263b8f751781474f70852"
+            },
+            {
+              "file": "libs/game/src/lib/models/card/plane-card.spec.ts",
+              "hash": "67d1ff7aa8e32f5397b48dc521461e773e905363"
+            },
+            {
+              "file": "libs/game/src/lib/models/card/plane-card.ts",
+              "hash": "a7cb404327168752ec408cdcfa5b8768e207e96c"
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/dice-sides.spec.ts",
+              "hash": "cd6b7c662e7e56c91bb04b6408973badd15565af"
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/dice-sides.ts",
+              "hash": "dbe3e98da983a569d181b7d0a8ae3ae387a58576"
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/faction-side.spec.ts",
+              "hash": "781db83b226a91c60eb919a4dd19ad75f76cc6b0"
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/faction.ts",
+              "hash": "12529770d3b52a47a7530c3ef3210171cb5e38bf"
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/game-move-id.spec.ts",
+              "hash": "b1387203f374ba70c6987aa6b964d6c86205a1b1"
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/game-move-id.ts",
+              "hash": "3e5f4da74a27004bde3cd069b2fc50a18d686ebe",
+              "deps": [
+                "npm:nanoid"
+              ]
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/game-move.ts",
+              "hash": "ea623be1f41d96b70da388a8133fb8de399c6c84",
+              "deps": [
+                "common"
+              ]
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/game-session-id.ts",
+              "hash": "718e56d2b90fd48c24a8779f04f4ee392758e390",
+              "deps": [
+                "npm:nanoid"
+              ]
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/game-session.ts",
+              "hash": "8997148f6f84045ff51e46882c435872b882894d"
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/index.ts",
+              "hash": "17d8b2bcb909597e00392b1216e7492603c7feec"
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/roll-id.ts",
+              "hash": "41e1f64cb2a4a2e2534a6bba25ba1ec7eb2d7e90",
+              "deps": [
+                "npm:nanoid"
+              ]
+            },
+            {
+              "file": "libs/game/src/lib/models/game-session/roll.ts",
+              "hash": "87027e2d0ce369a3c31b5bcdca2ebf70b2d277e4"
+            },
+            {
+              "file": "libs/game/src/lib/models/index.ts",
+              "hash": "8820bcd57d5fa2e23fe8d56bf816c9686736d544"
+            },
+            {
+              "file": "libs/game/src/lib/models/plane/index.ts",
+              "hash": "bd2a9ca72d79c83171d3376ac1c27ee8104ce869"
+            },
+            {
+              "file": "libs/game/src/lib/models/plane/plane-id.ts",
+              "hash": "628b036db29974461a08042d13e829e16ea9e8cc"
+            },
+            {
+              "file": "libs/game/src/lib/models/plane/plane-squadron.ts",
+              "hash": "2f272a30785e972c55e52c8db3e02d798f809759"
+            },
+            {
+              "file": "libs/game/src/lib/models/plane/plane.ts",
+              "hash": "c643951e280bf0bdef95eb6cf2635efec7762710"
+            },
+            {
+              "file": "libs/game/src/lib/utils/board-to-str/board-to-str.spec.ts",
+              "hash": "437bb4fc09e79fedfddc1f1c3468fbb7e8903cbf"
+            },
+            {
+              "file": "libs/game/src/lib/utils/board-to-str/board-to-str.ts",
+              "hash": "5cbbcd2512577b4c5e59f34c72c8219c4a39332e"
+            },
+            {
+              "file": "libs/game/src/lib/utils/index.ts",
+              "hash": "46d7ca5af988b2e4db5edd2792512d474c07cbdd"
+            },
+            {
+              "file": "libs/game/src/lib/utils/on-move/get-move-locations.spec.ts",
+              "hash": "43ee7a49217059f26e73977cc5242e3344c1bfa0"
+            },
+            {
+              "file": "libs/game/src/lib/utils/on-move/get-move-locations.ts",
+              "hash": "27b02e57fcba4e577daa93e5d0de3de92066323c"
+            },
+            {
+              "file": "libs/game/tsconfig.json",
+              "hash": "62ebbd946474cea997e774d20fffc4d585c184f3"
+            },
+            {
+              "file": "libs/game/tsconfig.lib.json",
+              "hash": "0e2a172abd561482f8c5e4d9ad900e03a9e48260"
+            },
+            {
+              "file": "libs/game/tsconfig.spec.json",
+              "hash": "ff08addd60ff581234ec9423d2bb90f31d8166e8"
+            }
+          ]
+        }
       }
     },
     "dependencies": {
+      "game-client-e2e": [
+        {
+          "source": "game-client-e2e",
+          "target": "game-client",
+          "type": "implicit"
+        }
+      ],
       "internal-client": [
         {
           "source": "internal-client",
           "target": "common-react",
           "type": "static"
+        }
+      ],
+      "game-react-e2e": [
+        {
+          "source": "game-react-e2e",
+          "target": "game-react",
+          "type": "implicit"
         }
       ],
       "common-react": [
@@ -882,8 +1681,17 @@
           "type": "static"
         }
       ],
+      "game-client": [],
+      "game-react": [],
       "storybook": [],
-      "common": []
+      "common": [],
+      "game": [
+        {
+          "source": "game",
+          "target": "common",
+          "type": "static"
+        }
+      ]
     }
   },
   "affectedProjects": [],
