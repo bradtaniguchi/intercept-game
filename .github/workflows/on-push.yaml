@@ -161,6 +161,7 @@ jobs:
       - uses: ./.github/actions/init-job
       - run: npx nx run common:lint
       - run: npx nx run common:test
+      - run: npx nx run common:build
 
   common-react:
     if: ${{ contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common-react') }}
@@ -179,20 +180,24 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - gen-affected
+      - common
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
       - run: npx nx run game:lint
       - run: npx nx run game:test
+      - run: npx nx run game:build
 
   game-react:
     if: ${{ contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'game-react') }}
     runs-on: ubuntu-latest
     needs:
       - gen-affected
+      - game
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
-      - run: npx nx run game:lint
-      - run: npx nx run game:test
+      - run: npx nx run game-react:lint
+      - run: npx nx run game-react:test
+      - run: npx nx run game-react:build
       # TODO: Add cypress storybook testing
