@@ -26,5 +26,9 @@ module.exports = {
       title: 'common-react',
       url: 'common-react/',
     },
+    'game-react': {
+      title: 'game-react',
+      url: 'game-react/',
+    },
   },
 };
