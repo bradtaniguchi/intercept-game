@@ -1,0 +1,18 @@
+name: load-libs
+description: Loads all previously cached libs from current pipeline. Should help with build-times.
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16.17.2'
+        cache: 'npm'
+    - uses: actions/upload-artifact@v2
+      with:
+        name: load-libs
+        path: dist/libs/
+        retention-days: 1
+    # debug
+    - run: ls -l dist/libs
+      shell: bash
