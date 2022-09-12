@@ -10,7 +10,7 @@ runs:
         cache: 'npm'
     - uses: actions/download-artifact@v3
       with:
-        name: load-libs
+        name: cached-libs
         path: dist/libs/
     # debug
     - run: ls -l dist/libs
