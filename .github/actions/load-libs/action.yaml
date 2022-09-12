@@ -12,7 +12,6 @@ runs:
       with:
         name: load-libs
         path: dist/libs/
-        retention-days: 1
     # debug
     - run: ls -l dist/libs
       shell: bash
