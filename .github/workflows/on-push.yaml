@@ -172,7 +172,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
-      - run: ./.github/actions/load-libs
+      - uses: ./.github/actions/load-libs
       - run: npx nx run common-react:lint
       - run: npx nx run common-react:test
       - run: npx nx run common-react:build
@@ -186,7 +186,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
-      - run: ./.github/actions/load-libs
+      - uses: ./.github/actions/load-libs
       - run: npx nx run game:lint
       - run: npx nx run game:test
       - run: npx nx run game:build
@@ -200,7 +200,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
-      - run: ./.github/actions/load-libs
+      - uses: ./.github/actions/load-libs
       - run: npx nx run game-react:lint
       - run: npx nx run game-react:test
       - run: npx nx run game-react:build
