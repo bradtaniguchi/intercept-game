@@ -23,7 +23,7 @@ jobs:
           echo $AFFECTED
           echo "::set-output name=AFFECTED::$AFFECTED"
       # also run some "cache" load steps
-      - run: mkdir dist/libs
+      - run: mkdir -p dist/libs
       - run: touch dist/libs/.keep
       - run: ./.github/actions/cache-libs
 
