@@ -7,6 +7,11 @@ const StyledGameReact = styled.div`
   color: pink;
 `;
 
+/**
+ * Whitespace change in game-react
+ *
+ * to trigger #5 workflow build.
+ */
 export function GameReact(props: GameReactProps) {
   return (
     <StyledGameReact>

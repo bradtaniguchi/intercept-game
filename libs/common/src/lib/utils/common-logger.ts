@@ -1,5 +1,6 @@
 export type CommonLoggerLogLevels = 'log' | 'debug' | 'warn' | 'error';
 
+// whitespace change
 /**
  * Configuration object for the common-logger.
  */
