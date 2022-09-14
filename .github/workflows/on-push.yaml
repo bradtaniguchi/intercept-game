@@ -19,7 +19,6 @@ jobs:
       - uses: ./.github/actions/init-job
       - uses: nrwl/nx-set-shas@v3
       - run: npx nx workspace-lint
-      - run: npx nx format:check
       - id: gen-affected
         run: |
           AFFECTED=$(npm run get:affected --silent)
