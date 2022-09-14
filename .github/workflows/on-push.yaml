@@ -22,6 +22,10 @@ jobs:
           AFFECTED=$(npm run get:affected --silent)
           echo $AFFECTED
           echo "::set-output name=AFFECTED::$AFFECTED"
+      # also run some "cache" load steps
+      - run: mkdir dist/libs
+      - run: touch dist/libs/.keep
+      - run: ./.github/actions/cache-libs
 
   internal-client:
     timeout-minutes: 5
@@ -190,7 +194,7 @@ jobs:
       - run: npx nx run game:lint
       - run: npx nx run game:test
       - run: npx nx run game:build
-      - run: ./.github/actions/load-libs
+      - run: ./.github/actions/cache-libs
 
   game-react:
     if: ${{ contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'game-react') }}
@@ -204,5 +208,5 @@ jobs:
       - run: npx nx run game-react:lint
       - run: npx nx run game-react:test
       - run: npx nx run game-react:build
-      - run: ./.github/actions/load-libs
+      - run: ./.github/actions/cache-libs
       # TODO: Add cypress storybook testing
