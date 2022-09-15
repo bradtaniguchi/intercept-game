@@ -787,6 +787,17 @@
               "hash": "3e7f73889347f14dee65dd2817caeca44a880a73"
             },
             {
+              "file": "apps/game-client/core/header/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/game-client/core/header/header.tsx",
+              "hash": "5140cdc6c1005ee3906c2ef8d62adbb2c0a4e94d",
+              "deps": [
+                "common-react"
+              ]
+            },
+            {
               "file": "apps/game-client/index.d.ts",
               "hash": "7ba08fa17ccbb3d5eaa4d9c7b435bd44ff43f330"
             },
@@ -807,30 +818,45 @@
             },
             {
               "file": "apps/game-client/pages/_app.tsx",
-              "hash": "ed56028a7b2672860fb2ff06c305801af71f78cc",
+              "hash": "aa7d09ababef8dc84489c7a39c609fdf736a8926",
               "deps": [
+                "npm:@mui/material",
                 "npm:next"
               ]
             },
             {
               "file": "apps/game-client/pages/_document.tsx",
-              "hash": "ff98606e7f61042e94592319f0ed27fb21ee34d1",
+              "hash": "4d4b720886f881bd3be504f1015c5bd28e5eb339",
               "deps": [
                 "npm:react",
                 "npm:next",
-                "npm:styled-components"
+                "npm:styled-components",
+                "common-react"
               ]
+            },
+            {
+              "file": "apps/game-client/pages/dashboard/index.tsx",
+              "hash": "eef98fac26d5abe177551dc7b2d7ae27ef2b6612"
+            },
+            {
+              "file": "apps/game-client/pages/game-list/index.tsx",
+              "hash": "f1d1dc536b8364543a7ecd71120e9b256e415f81"
+            },
+            {
+              "file": "apps/game-client/pages/game/index.tsx",
+              "hash": "638dc8d99c4ba6fed6820a834ce881b164c62d09"
             },
             {
               "file": "apps/game-client/pages/index.tsx",
-              "hash": "4b86357f67f2271115a20474b0c94fbf4bb91c13",
-              "deps": [
-                "npm:styled-components"
-              ]
+              "hash": "24e0c6e3af0f675066f2e65b57f87701cde51720"
+            },
+            {
+              "file": "apps/game-client/pages/login/index.tsx",
+              "hash": "96033d6562fa3b3cf6d452687fde8cd113b89dad"
             },
             {
               "file": "apps/game-client/pages/styles.css",
-              "hash": "7fe31fd45429117eb5aeef6a5d9332da9d9dd9c0"
+              "hash": "e8df664b21310fb18e3a97b2c89935b5db788787"
             },
             {
               "file": "apps/game-client/project.json",
@@ -1681,7 +1707,13 @@
           "type": "static"
         }
       ],
-      "game-client": [],
+      "game-client": [
+        {
+          "source": "game-client",
+          "target": "common-react",
+          "type": "static"
+        }
+      ],
       "game-react": [],
       "storybook": [],
       "common": [],
