@@ -11,7 +11,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to game-client!</title>
       </Head>
       <CssBaseline>
-        <Header />
+        <Header>
+          <h1>intercept-game</h1>
+        </Header>
         <main className="app">
           <Component {...pageProps} />
         </main>
