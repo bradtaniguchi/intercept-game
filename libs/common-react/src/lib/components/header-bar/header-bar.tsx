@@ -82,6 +82,9 @@ export function HeaderBar(props: HeaderBarProps) {
                   <MoreVert />
                 </IconButton>
               )}
+              {/* TODO make nicer! Integrate display logic*/}
+              <a href="/api/auth/login">Login</a>
+              <a href="/api/auth/logout">Logout</a>
             </Toolbar>
           </AppBar>
         </Box>
