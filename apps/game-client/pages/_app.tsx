@@ -2,6 +2,7 @@ import { CssBaseline } from '@mui/material';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Header } from '../core/header/header';
+import { UserProvider } from '@auth0/nextjs-auth0';
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -11,12 +12,14 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to game-client!</title>
       </Head>
       <CssBaseline>
-        <Header>
-          <h1>intercept-game</h1>
-        </Header>
-        <main className="app">
-          <Component {...pageProps} />
-        </main>
+        <UserProvider>
+          <Header>
+            <h1>intercept-game</h1>
+          </Header>
+          <main className="app">
+            <Component {...pageProps} />
+          </main>
+        </UserProvider>
       </CssBaseline>
     </>
   );
