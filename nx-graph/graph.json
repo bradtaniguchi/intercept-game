@@ -867,6 +867,10 @@
               "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
             },
             {
+              "file": "apps/game-client/README.md",
+              "hash": "c1ff396e6da4b275863fc9f673c5c478b2d46c12"
+            },
+            {
               "file": "apps/game-client/specs/index.spec.tsx",
               "hash": "42c94022afd1c1c396f85b24a08d75984b8adb9c",
               "deps": [
