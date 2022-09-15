@@ -1,5 +1,7 @@
+import { CssBaseline } from '@mui/material';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { Header } from '../core/header/header';
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -8,9 +10,14 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Welcome to game-client!</title>
       </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
+      <CssBaseline>
+        <Header>
+          <h1>intercept-game</h1>
+        </Header>
+        <main className="app">
+          <Component {...pageProps} />
+        </main>
+      </CssBaseline>
     </>
   );
 }
