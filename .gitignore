@@ -41,5 +41,5 @@ Thumbs.db
 .lighthouseci
 
 # environment variables
-.env
+.env*
 .vercel
