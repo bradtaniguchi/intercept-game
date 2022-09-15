@@ -1,3 +1,4 @@
+import { CssBaseline } from '@mui/material';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Header } from '../core/header/header';
@@ -9,10 +10,12 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Welcome to game-client!</title>
       </Head>
-      <Header />
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
+      <CssBaseline>
+        <Header />
+        <main className="app">
+          <Component {...pageProps} />
+        </main>
+      </CssBaseline>
     </>
   );
 }
