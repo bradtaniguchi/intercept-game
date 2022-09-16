@@ -8,6 +8,6 @@ Run `nx test common-react` to execute the unit tests via [Jest](https://jestjs.i
 
 ## Running storybook
 
-Run `nx run storybook:storybook` to execute the local storybook project.
+Run `nx run common-react:storybook` to execute the local storybook project.
 
 <!-- white space change to trigger nx -->

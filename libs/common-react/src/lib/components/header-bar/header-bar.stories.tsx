@@ -62,5 +62,43 @@ AuthenticatedEmptyExample.decorators = [
   ),
 ];
 
+export const InAppExample = Template.bind({});
+InAppExample.args = {};
+InAppExample.decorators = [
+  (Story) => (
+    <HeaderBarContext.Provider
+      value={
+        // This is an example of an authenticated "toolbar"
+        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row' }}>
+          <Typography
+            component="div"
+            sx={{
+              flexGrow: 1,
+            }}
+          >
+            {/* I can't center this vertically! */}
+            <div>Authenticated Example</div>
+          </Typography>
+          {/* TODO: Add user information here */}
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="Authenticated User Icon"
+          >
+            <AccountCircle />
+          </IconButton>
+        </Box>
+      }
+    >
+      <Story />
+    </HeaderBarContext.Provider>
+  ),
+];
+
 export const WithSearchExample = Template.bind({});
 WithSearchExample.args = {};
+
+// TODO: add example with "authenticated"
+// TODO: add example with "un-authenticated"
+// based around the auth0 response for "me".
