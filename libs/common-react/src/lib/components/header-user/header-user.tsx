@@ -31,3 +31,25 @@ export function HeaderUser(props: HeaderUserProps) {
     </Tooltip>
   );
 }
+
+/**
+ * Menu component that goes with the header user component.
+ * This should be used with the HeaderUser
+ */
+HeaderUser.Menu = function HeaderUserMenu() {
+  // TODO:
+  return <div></div>;
+  //   return <Menu
+  //   id="basic-menu"
+  //   anchorEl={anchorEl}
+  //   open={open}
+  //   onClose={handleClose}
+  //   MenuListProps={{
+  //     'aria-labelledby': 'basic-button',
+  //   }}
+  // >
+  //   <MenuItem onClick={handleClose}>Profile</MenuItem>
+  //   <MenuItem onClick={handleClose}>My account</MenuItem>
+  //   <MenuItem onClick={handleClose}>Logout</MenuItem>
+  // </Menu>
+};

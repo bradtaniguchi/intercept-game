@@ -98,9 +98,6 @@ InAppExample.decorators = [
   ),
 ];
 
-export const WithSearchExample = Template.bind({});
-WithSearchExample.args = {};
-
-// TODO: add example with "authenticated"
-// TODO: add example with "un-authenticated"
-// based around the auth0 response for "me".
+// TODO: waiting to finalize the search component itself
+// export const WithSearchExample = Template.bind({});
+// WithSearchExample.args = {};
