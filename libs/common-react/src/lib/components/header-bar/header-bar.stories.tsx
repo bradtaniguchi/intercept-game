@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Story, Meta } from '@storybook/react';
 import { HeaderBar, HeaderBarProps, HeaderBarContext } from './header-bar';
+import { HeaderUser } from '../header-user/header-user';
 
 export default {
   component: HeaderBar,
@@ -63,7 +64,9 @@ AuthenticatedEmptyExample.decorators = [
 ];
 
 export const InAppExample = Template.bind({});
-InAppExample.args = {};
+InAppExample.args = {
+  hideMenu: true,
+};
 InAppExample.decorators = [
   (Story) => (
     <HeaderBarContext.Provider
@@ -79,15 +82,14 @@ InAppExample.decorators = [
             {/* I can't center this vertically! */}
             <div>Authenticated Example</div>
           </Typography>
-          {/* TODO: Add user information here */}
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="Authenticated User Icon"
-          >
-            <AccountCircle />
-          </IconButton>
+          <Box>
+            <HeaderUser
+              user={{
+                name: 'brad',
+                email: 'brad@mail.com',
+              }}
+            />
+          </Box>
         </Box>
       }
     >
