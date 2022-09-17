@@ -16,7 +16,9 @@ import {
 import { Search as SearchIcon } from '@mui/icons-material';
 import { useCallback, useMemo, useState } from 'react';
 
-export interface HeaderProps extends HeaderUserProps, HeaderSearchProps {}
+export interface HeaderProps
+  extends HeaderUserProps,
+    Pick<HeaderSearchProps, 'searchQuery'> {}
 
 /**
  * The header is displayed at the top of every page.
