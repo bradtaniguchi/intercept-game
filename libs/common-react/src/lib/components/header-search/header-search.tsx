@@ -7,7 +7,7 @@ import {
   OutlinedInput,
 } from '@mui/material';
 import { Search as SearchIcon, Close as CloseIcon } from '@mui/icons-material';
-import { ChangeEvent, useCallback, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 export interface HeaderSearchProps {
   /**
@@ -40,7 +40,15 @@ export interface HeaderSearchProps {
 export function HeaderSearch(props: HeaderSearchProps) {
   const { searchQuery: initSearchQuery, onSearch, onChange, onClose } = props;
 
-  const [searchQuery, setSearchQuery] = useState<string>(initSearchQuery ?? '');
+  const [searchQuery, setSearchQuery] = useState<string | GameSessionId>(
+    initSearchQuery ?? ''
+  );
+
+  useEffect(() => {
+    // If this is changed/provided updated by the parent component, we
+    // set it internally
+    if (initSearchQuery) setSearchQuery(initSearchQuery);
+  }, [initSearchQuery]);
 
   const onSearchChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {

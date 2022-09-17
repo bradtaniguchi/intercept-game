@@ -14,7 +14,7 @@ import {
   Typography,
 } from '@mui/material';
 import { Search as SearchIcon } from '@mui/icons-material';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 export interface HeaderProps
   extends HeaderUserProps,
@@ -39,6 +39,10 @@ export function Header(props: HeaderProps) {
   );
 
   const [isSearching, setIsSearching] = useState(!!searchQuery);
+
+  useEffect(() => {
+    if (searchQuery) setIsSearching(true);
+  }, [searchQuery]);
 
   const onCloseHandle = useCallback(() => setIsSearching(false), []);
   const onShowSearchHandle = useCallback(() => setIsSearching(true), []);
