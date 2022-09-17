@@ -1,5 +1,4 @@
 export * from './lib/components/google-analytics/google-analytics';
-export * from './lib/components/header-bar/header-bar';
 export * from './lib/components/header-search/header-search';
 export * from './lib/components/header-user/header-user';
 export * from './lib/components/side-nav/side-nav';
