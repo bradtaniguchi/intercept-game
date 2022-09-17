@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { Search as SearchIcon, Close as CloseIcon } from '@mui/icons-material';
 import { ChangeEvent, useCallback, useState } from 'react';
+import { styled } from '@mui/material/styles';
 
 export interface HeaderSearchProps {
   /**
@@ -60,8 +61,8 @@ export function HeaderSearch(props: HeaderSearchProps) {
     <Box sx={{ flexGrow: 1, alignItems: 'center', display: 'flex' }}>
       <FormControl variant="outlined" sx={{ flexGrow: 1 }} hiddenLabel>
         <OutlinedInput
+          sx={{ backgroundColor: '#ffffff' }}
           id="search"
-          label="Search"
           value={initSearchQuery}
           onChange={onSearchChange}
           endAdornment={
