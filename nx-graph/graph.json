@@ -520,11 +520,11 @@
             },
             {
               "file": "libs/common-react/README.md",
-              "hash": "f351f7ff8075ea3a997a7e45950bfe94141af6df"
+              "hash": "6c1acbabe912e9583cbf498fb7a5b9801d49eb9f"
             },
             {
               "file": "libs/common-react/src/index.ts",
-              "hash": "bc2818fa2e5d5c727db6803e4944d1a2531c9d3d"
+              "hash": "af98f1126ddd4944d82ea7b4c5438817e5d120e1"
             },
             {
               "file": "libs/common-react/src/lib/components/google-analytics/google-analytics.tsx",
@@ -546,7 +546,7 @@
             },
             {
               "file": "libs/common-react/src/lib/components/header-bar/header-bar.stories.tsx",
-              "hash": "f96c6496b0df7ae21f4e8438feb82b8deb3f9330",
+              "hash": "036c179d8ee92c80ff2240c6b0772a4ed7694587",
               "deps": [
                 "npm:@mui/material",
                 "npm:@mui/icons-material",
@@ -555,10 +555,46 @@
             },
             {
               "file": "libs/common-react/src/lib/components/header-bar/header-bar.tsx",
-              "hash": "dd37a253333ef0109de8459df0cfa1bc74b86bcb",
+              "hash": "dd1b044da5b0dde7d900533374ef7d46c7ac98a6",
               "deps": [
                 "npm:@mui/icons-material",
                 "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/components/header-search/header-search.stories.tsx",
+              "hash": "a9da4c2d2c1e9267af519df95943c527b99791bc",
+              "deps": [
+                "npm:@storybook/react",
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/components/header-search/header-search.tsx",
+              "hash": "cc8172116a221662ca454c5048dbca1ec460df83",
+              "deps": [
+                "game",
+                "npm:@mui/material",
+                "npm:@mui/icons-material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/components/header-user/header-user.stories.tsx",
+              "hash": "837afb3023157e4232473ce37f2f9573f2f7cb29",
+              "deps": [
+                "npm:@storybook/react",
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/components/header-user/header-user.tsx",
+              "hash": "354461938201d1018de468883426ad0351805917",
+              "deps": [
+                "npm:@auth0/nextjs-auth0",
+                "npm:@mui/material",
+                "npm:@mui/icons-material",
                 "npm:react"
               ]
             },
@@ -787,14 +823,12 @@
               "hash": "3e7f73889347f14dee65dd2817caeca44a880a73"
             },
             {
-              "file": "apps/game-client/core/header/.gitkeep",
-              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-            },
-            {
-              "file": "apps/game-client/core/header/header.tsx",
-              "hash": "5140cdc6c1005ee3906c2ef8d62adbb2c0a4e94d",
+              "file": "apps/game-client/core/app-header/app-header.tsx",
+              "hash": "a7df964c1c3b45aa4b13470b9ed4badef205faf2",
               "deps": [
-                "common-react"
+                "npm:@auth0/nextjs-auth0",
+                "game-react",
+                "npm:next"
               ]
             },
             {
@@ -818,10 +852,11 @@
             },
             {
               "file": "apps/game-client/pages/_app.tsx",
-              "hash": "aa7d09ababef8dc84489c7a39c609fdf736a8926",
+              "hash": "00ce8552d0cb40c1dff2bfc1595ff23f5bbca7bc",
               "deps": [
                 "npm:@mui/material",
-                "npm:next"
+                "npm:next",
+                "npm:@auth0/nextjs-auth0"
               ]
             },
             {
@@ -835,12 +870,15 @@
               ]
             },
             {
-              "file": "apps/game-client/pages/dashboard/index.tsx",
-              "hash": "eef98fac26d5abe177551dc7b2d7ae27ef2b6612"
+              "file": "apps/game-client/pages/api/auth/[...auth0].ts",
+              "hash": "304b4012a1ca4702fe057b30f043d6001daa8e9c",
+              "deps": [
+                "npm:@auth0/nextjs-auth0"
+              ]
             },
             {
-              "file": "apps/game-client/pages/game-list/index.tsx",
-              "hash": "f1d1dc536b8364543a7ecd71120e9b256e415f81"
+              "file": "apps/game-client/pages/dashboard/index.tsx",
+              "hash": "eef98fac26d5abe177551dc7b2d7ae27ef2b6612"
             },
             {
               "file": "apps/game-client/pages/game/index.tsx",
@@ -851,8 +889,13 @@
               "hash": "24e0c6e3af0f675066f2e65b57f87701cde51720"
             },
             {
-              "file": "apps/game-client/pages/login/index.tsx",
-              "hash": "96033d6562fa3b3cf6d452687fde8cd113b89dad"
+              "file": "apps/game-client/pages/lobby/[game-session-id].tsx",
+              "hash": "f07af9a88553d3408a482016ea0d7a880f886618",
+              "deps": [
+                "npm:@auth0/nextjs-auth0",
+                "game",
+                "npm:next"
+              ]
             },
             {
               "file": "apps/game-client/pages/styles.css",
@@ -1016,25 +1059,33 @@
             },
             {
               "file": "libs/game-react/README.md",
-              "hash": "48a3850eb31069300a8ad13dafb51cdd872691c6"
+              "hash": "f3f71c7d00afabafd5ef8f03255ce3ff87115da5"
             },
             {
               "file": "libs/game-react/src/index.ts",
-              "hash": "c4f0a61be1df9686abc943d15241422a98e600fd"
+              "hash": "aad2944835d6adc3941d25bc719d6cf7e82e93ac"
             },
             {
-              "file": "libs/game-react/src/lib/game-react.spec.tsx",
-              "hash": "3d7338c940f2920b8e47d108bacc5e61be34104e",
+              "file": "libs/game-react/src/lib/core/header/header.stories.tsx",
+              "hash": "23785277148faab44bc1b31ff24ca4d8364229fe",
               "deps": [
-                "npm:@testing-library/react"
+                "npm:@storybook/react"
               ]
             },
             {
-              "file": "libs/game-react/src/lib/game-react.tsx",
-              "hash": "ce3049555647d338a2dd46108d0f5c2456dd6a82",
+              "file": "libs/game-react/src/lib/core/header/header.tsx",
+              "hash": "4925cbe8de73246074dde952e12f33dcbd564860",
               "deps": [
-                "npm:styled-components"
+                "common-react",
+                "npm:@mui/material",
+                "npm:@mui/icons-material",
+                "npm:react",
+                "npm:next"
               ]
+            },
+            {
+              "file": "libs/game-react/src/lib/pages/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
             },
             {
               "file": "libs/game-react/tsconfig.json",
@@ -1327,11 +1378,11 @@
             },
             {
               "file": "libs/common/src/lib/utils/common-logger.spec.ts",
-              "hash": "9e14486f59a3369a386505fc095ce32164e5b6e8"
+              "hash": "984ea721cb129c3c44e456d99d7d66c82e8e8f92"
             },
             {
               "file": "libs/common/src/lib/utils/common-logger.ts",
-              "hash": "b117d0663c69359b2b4175f5005e9f469fd39c65"
+              "hash": "187f11ee436fc8db4590176f07a5ea5691b5d5c0"
             },
             {
               "file": "libs/common/src/lib/utils/get-id.spec.ts",
@@ -1707,6 +1758,11 @@
       "common-react": [
         {
           "source": "common-react",
+          "target": "game",
+          "type": "static"
+        },
+        {
+          "source": "common-react",
           "target": "common",
           "type": "static"
         }
@@ -1714,11 +1770,27 @@
       "game-client": [
         {
           "source": "game-client",
+          "target": "game-react",
+          "type": "static"
+        },
+        {
+          "source": "game-client",
+          "target": "common-react",
+          "type": "static"
+        },
+        {
+          "source": "game-client",
+          "target": "game",
+          "type": "static"
+        }
+      ],
+      "game-react": [
+        {
+          "source": "game-react",
           "target": "common-react",
           "type": "static"
         }
       ],
-      "game-react": [],
       "storybook": [],
       "common": [],
       "game": [
