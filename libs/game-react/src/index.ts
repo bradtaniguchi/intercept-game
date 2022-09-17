@@ -1,1 +1,1 @@
-export * from './lib/game-react';
+export * from './lib/core/header/header';

@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Story, Meta } from '@storybook/react';
 import { HeaderBar, HeaderBarProps, HeaderBarContext } from './header-bar';
+import { HeaderUser } from '../header-user/header-user';
 
 export default {
   component: HeaderBar,
@@ -62,5 +63,41 @@ AuthenticatedEmptyExample.decorators = [
   ),
 ];
 
-export const WithSearchExample = Template.bind({});
-WithSearchExample.args = {};
+export const InAppExample = Template.bind({});
+InAppExample.args = {
+  hideMenu: true,
+};
+InAppExample.decorators = [
+  (Story) => (
+    <HeaderBarContext.Provider
+      value={
+        // This is an example of an authenticated "toolbar"
+        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row' }}>
+          <Typography
+            component="div"
+            sx={{
+              flexGrow: 1,
+            }}
+          >
+            {/* I can't center this vertically! */}
+            <div>Authenticated Example</div>
+          </Typography>
+          <Box>
+            <HeaderUser
+              user={{
+                name: 'brad',
+                email: 'brad@mail.com',
+              }}
+            />
+          </Box>
+        </Box>
+      }
+    >
+      <Story />
+    </HeaderBarContext.Provider>
+  ),
+];
+
+// TODO: waiting to finalize the search component itself
+// export const WithSearchExample = Template.bind({});
+// WithSearchExample.args = {};

@@ -82,7 +82,7 @@ export class CommonLogger {
         message,
         optionalParams,
       });
-    console.error(this.prefix + message, ...optionalParams);
+    console.error(this.prefix, message, ...optionalParams);
   }
   /**
    * Logs message at the log level
@@ -96,7 +96,7 @@ export class CommonLogger {
         message,
         optionalParams,
       });
-    console.log(this.prefix + message, ...optionalParams);
+    console.log(this.prefix, message, ...optionalParams);
   }
 
   /**
@@ -111,7 +111,7 @@ export class CommonLogger {
         message,
         optionalParams,
       });
-    console.debug(this.prefix + message, ...optionalParams);
+    console.debug(this.prefix, message, ...optionalParams);
   }
 
   /**
@@ -126,6 +126,6 @@ export class CommonLogger {
         message,
         optionalParams,
       });
-    console.warn(this.prefix + message, ...optionalParams);
+    console.warn(this.prefix, message, ...optionalParams);
   }
 }

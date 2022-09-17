@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import { SyntheticEvent } from 'react';
 import { HeaderBarContext } from './header-bar-context';
 
-/* eslint-disable-next-line */
 export interface HeaderBarProps {
   /**
    * Hide the hamburger menu on the left.

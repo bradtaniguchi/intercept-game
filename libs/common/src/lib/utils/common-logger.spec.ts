@@ -50,13 +50,13 @@ describe('CommonLogger', () => {
   it('should use prefix', () => {
     logger = new CommonLogger({ prefix: '[prefix] ' });
     logger.log('test');
-    expect(consoleLogSpy).toHaveBeenCalledWith('[prefix] test');
+    expect(consoleLogSpy).toHaveBeenCalledWith('[prefix] ', 'test');
   });
   it('should use onLog', () => {
     const onLog = jest.fn();
     logger = new CommonLogger({ onLog });
     logger.log('test');
-    expect(consoleLogSpy).toHaveBeenCalledWith('test');
+    expect(consoleLogSpy).toHaveBeenCalledWith('', 'test');
     expect(onLog).toHaveBeenCalledWith({
       level: 'log',
       message: 'test',
