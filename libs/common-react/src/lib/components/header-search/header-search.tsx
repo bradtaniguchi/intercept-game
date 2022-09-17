@@ -8,7 +8,6 @@ import {
 } from '@mui/material';
 import { Search as SearchIcon, Close as CloseIcon } from '@mui/icons-material';
 import { ChangeEvent, useCallback, useState } from 'react';
-import { styled } from '@mui/material/styles';
 
 export interface HeaderSearchProps {
   /**
@@ -46,7 +45,6 @@ export function HeaderSearch(props: HeaderSearchProps) {
   const onSearchChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
-      console.log('test with value', value);
       setSearchQuery(value);
       if (typeof onChange === 'function') onChange(value);
     },
@@ -63,8 +61,9 @@ export function HeaderSearch(props: HeaderSearchProps) {
         <OutlinedInput
           sx={{ backgroundColor: '#ffffff' }}
           id="search"
-          value={initSearchQuery}
+          value={searchQuery}
           onChange={onSearchChange}
+          autoComplete="off"
           endAdornment={
             <InputAdornment position="end">
               <IconButton

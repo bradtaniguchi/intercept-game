@@ -54,7 +54,6 @@ export function HeaderUser(props: HeaderUserProps) {
           <AccountCircle />
         </IconButton>
         <HeaderUser.Menu
-          user={user}
           anchorEl={ref.current}
           open={open}
           onClose={handleClose}
@@ -64,13 +63,7 @@ export function HeaderUser(props: HeaderUserProps) {
   );
 }
 
-export interface HeaderUserMenuProps extends MenuProps {
-  /**
-   * The user logged in, not used internally, only used
-   * to know if the user is logged in or not.
-   */
-  user?: Partial<UserProfile>;
-}
+export type HeaderUserMenuProps = MenuProps;
 
 /**
  * Menu component that goes with the header user component.
@@ -79,15 +72,10 @@ export interface HeaderUserMenuProps extends MenuProps {
  * Internally this provides the user with the correct login/logout buttons.
  */
 HeaderUser.Menu = function HeaderUserMenu(props: HeaderUserMenuProps) {
-  const { user } = props;
   return (
     <Menu {...props}>
       <MenuItem>
-        {user ? (
-          <Link href="/api/auth/logout">Logout</Link>
-        ) : (
-          <Link href="/api/auth/login">Login</Link>
-        )}
+        <Link href="/api/auth/logout">Logout</Link>
       </MenuItem>
     </Menu>
   );

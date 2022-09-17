@@ -30,12 +30,12 @@ const Template: Story<HeaderSearchProps> = (args) => <HeaderSearch {...args} />;
 export const Empty = Template.bind({});
 Empty.args = {};
 
-export const WithValue = Template.bind({});
-WithValue.args = {
+export const WithSearchQuery = Template.bind({});
+WithSearchQuery.args = {
   searchQuery: 'initial value',
 };
 
-export const WithSuperLongValue = Template.bind({});
-WithSuperLongValue.args = {
+export const WithSuperLongSearchQuery = Template.bind({});
+WithSearchQuery.args = {
   searchQuery: 'initial value'.repeat(100),
 };
