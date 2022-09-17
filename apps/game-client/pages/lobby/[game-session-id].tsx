@@ -1,3 +1,4 @@
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { GameSessionId } from '@intercept-game/game';
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 
@@ -24,26 +25,30 @@ export function GameLobby(props: GameLobbyProps) {
 
 export default GameLobby;
 
-export function getServerSideProps(
-  context: GetServerSidePropsContext
-): GetServerSidePropsResult<GameLobbyProps> {
-  const {
-    params: { 'game-session-id': initGameSessionId },
-  } = context;
+export const getServerSideProps = withPageAuthRequired({
+  getServerSideProps: async (
+    context: GetServerSidePropsContext
+  ): Promise<GetServerSidePropsResult<GameLobbyProps>> => {
+    const {
+      params: { 'game-session-id': initGameSessionId },
+    } = context;
 
-  // There should only be one.
-  const gameSessionId = GameSessionId(
-    Array.isArray(initGameSessionId) ? initGameSessionId[0] : initGameSessionId
-  );
-  // TODO: verify GameSessionId is valid
+    // There should only be one.
+    const gameSessionId = GameSessionId(
+      Array.isArray(initGameSessionId)
+        ? initGameSessionId[0]
+        : initGameSessionId
+    );
+    // TODO: verify GameSessionId is valid
 
-  console.log('[GameLobby]', gameSessionId, { params: context.params });
+    console.log('[GameLobby]', gameSessionId, { params: context.params });
 
-  if (!gameSessionId) return { notFound: true };
+    if (!gameSessionId) return { notFound: true };
 
-  return {
-    props: {
-      gameSessionId,
-    },
-  };
-}
+    return {
+      props: {
+        gameSessionId,
+      },
+    };
+  },
+});
