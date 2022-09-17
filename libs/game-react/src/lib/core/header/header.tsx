@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import { Search as SearchIcon } from '@mui/icons-material';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
 
 export interface HeaderProps
   extends HeaderUserProps,
@@ -37,6 +38,7 @@ export function Header(props: HeaderProps) {
       []
     )
   );
+  const router = useRouter();
 
   const [isSearching, setIsSearching] = useState(!!searchQuery);
 
@@ -49,9 +51,10 @@ export function Header(props: HeaderProps) {
 
   const onSearchHandle = useCallback(
     (value: string) => {
-      logger.log('on-search-handle: ', { value });
+      logger.log('navigating to lobby: ', { value });
+      router.push(`lobby/${value}`);
     },
-    [logger]
+    [logger, router]
   );
 
   return (
