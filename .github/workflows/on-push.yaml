@@ -218,6 +218,7 @@ jobs:
       - gen-affected
     env:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
