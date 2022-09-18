@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "npx nx build game-client --prod",
+  "outputDirectory": "dist/apps/game-client/.next",
+  "ignoreCommand": "npx nx-ignore game-client"
+}

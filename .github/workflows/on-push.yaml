@@ -226,7 +226,12 @@ jobs:
       - run: npx nx run game-client:lint
       - run: npx nx run game-client:test
       # TODO: Add cypress storybook testing
-      - run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      # testing if this is needed as things are defined in the repo
+      # - run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      # run a sanity build in github-actions, wont be deployed though.
       - run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-      - run: npx vercel deploy --prod --prebuilt --token=${{ secrets.VERCEL_TOKEN }} --cwd=.vercel/output
+        if: github.ref != 'refs/heads/main'
+      # **Note** prebuilt wont work
+      - run: npx vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
         if: github.ref == 'refs/heads/main'
