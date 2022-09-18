@@ -11,7 +11,8 @@ export default class CustomDocument extends Document<{
     const sheet = new ServerStyleSheet();
 
     const page = renderPage(
-      (App) => (props) => sheet.collectStyles(<App {...props} />)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (App: any) => (props: any) => sheet.collectStyles(<App {...props} />)
     );
 
     const styleTags = sheet.getStyleElement();
