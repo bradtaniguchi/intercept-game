@@ -15,8 +15,8 @@ const argv = yargs(hideBin(process.argv)).argv;
   try {
     const TARGETS = ['lint', 'test', 'export', 'build', 'lighthouse'];
 
-    const { branch } = argv;
-    const isMain = branch === 'refs/heads/main';
+    const { head } = argv;
+    const isMain = head === 'refs/heads/main';
     const baseSha = isMain ? 'origin/main~1' : 'origin/main';
 
     const affectedProjectsStr = await Promise.all(
