@@ -886,7 +886,7 @@
             },
             {
               "file": "apps/game-client/pages/index.tsx",
-              "hash": "24e0c6e3af0f675066f2e65b57f87701cde51720"
+              "hash": "79634d010e42d9943e4e1b94f90fe1fcb9ddbfbf"
             },
             {
               "file": "apps/game-client/pages/lobby/[game-session-id].tsx",
