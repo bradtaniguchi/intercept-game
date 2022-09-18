@@ -852,11 +852,11 @@
             },
             {
               "file": "apps/game-client/pages/_app.tsx",
-              "hash": "00ce8552d0cb40c1dff2bfc1595ff23f5bbca7bc",
+              "hash": "7c9934937a069c9ff39d70e5a87f41b3edd6b21b",
               "deps": [
+                "npm:@auth0/nextjs-auth0",
                 "npm:@mui/material",
-                "npm:next",
-                "npm:@auth0/nextjs-auth0"
+                "npm:next"
               ]
             },
             {
