@@ -19,7 +19,6 @@ const argv = yargs(hideBin(process.argv)).argv;
     const isMain = head === 'refs/heads/main';
     const baseSha = isMain ? 'origin/main~1' : 'origin/main';
 
-    console.log('debug:', { isMain, baseSha, head });
     const affectedProjectsStr = await Promise.all(
       TARGETS.map((target) =>
         exec(
