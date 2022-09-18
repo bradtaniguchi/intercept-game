@@ -861,7 +861,7 @@
             },
             {
               "file": "apps/game-client/pages/_document.tsx",
-              "hash": "4d4b720886f881bd3be504f1015c5bd28e5eb339",
+              "hash": "4119a89dd9c213931ad36cfc4c47921a5cf9fe03",
               "deps": [
                 "npm:react",
                 "npm:next",
