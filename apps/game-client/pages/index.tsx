@@ -1,10 +1,3 @@
-// import styled from 'styled-components';
-
-// const StyledPage = styled.div`
-//   .page {
-//   }
-// `;
-
 export function Index() {
   /*
    * Replace the elements below with your own.
