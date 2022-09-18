@@ -13,11 +13,11 @@ const argv = yargs(hideBin(process.argv)).argv;
  */
 (async () => {
   try {
-    const TARGETS = ['lint', 'test', 'build', 'lighthouse'];
+    const TARGETS = ['lint', 'test', 'export', 'build', 'lighthouse'];
 
     const { branch } = argv;
-    const isMaster = branch === 'refs/heads/main';
-    const baseSha = isMaster ? 'origin/main~1' : 'origin/main';
+    const isMain = branch === 'refs/heads/main';
+    const baseSha = isMain ? 'origin/main~1' : 'origin/main';
 
     const affectedProjectsStr = await Promise.all(
       TARGETS.map((target) =>
