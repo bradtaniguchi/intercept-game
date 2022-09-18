@@ -19,7 +19,7 @@ jobs:
       - uses: ./.github/actions/init-job
       - id: gen-affected
         run: |
-          AFFECTED=$(npm run get:affected -- --silent --head=$GITHUB_REF)
+          AFFECTED=$(npm run get:affected --silent --  --head=$GITHUB_REF)
           echo $AFFECTED
           echo "::set-output name=AFFECTED::$AFFECTED"
       # also run some "cache" load steps
