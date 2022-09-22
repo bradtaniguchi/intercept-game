@@ -28,6 +28,18 @@
         "jestConfig": "libs/game/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "typedoc": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx typedoc --options libs/game/typedoc.json"
+      }
+    },
+    "typedoc-server": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx http-server dist/docs/game"
+      }
     }
   },
   "tags": []
