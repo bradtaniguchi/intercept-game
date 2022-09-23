@@ -1022,6 +1022,18 @@
                   "quiet": true
                 }
               }
+            },
+            "typedoc": {
+              "executor": "@nrwl/workspace:run-commands",
+              "options": {
+                "command": "npx typedoc --options libs/game-react/typedoc.json"
+              }
+            },
+            "typedoc-server": {
+              "executor": "@nrwl/workspace:run-commands",
+              "options": {
+                "command": "npx http-server dist/docs/game-react"
+              }
             }
           },
           "files": [
@@ -1055,11 +1067,11 @@
             },
             {
               "file": "libs/game-react/project.json",
-              "hash": "bc4497292bc31153b26668ad79132e5998d94248"
+              "hash": "658d047c3f80214a3b7a9e1bdd8e52b7a6049854"
             },
             {
               "file": "libs/game-react/README.md",
-              "hash": "f3f71c7d00afabafd5ef8f03255ce3ff87115da5"
+              "hash": "a86340f022ca6a09b54e2205600eca1e635b8e05"
             },
             {
               "file": "libs/game-react/src/index.ts",
@@ -1098,6 +1110,10 @@
             {
               "file": "libs/game-react/tsconfig.spec.json",
               "hash": "ff08addd60ff581234ec9423d2bb90f31d8166e8"
+            },
+            {
+              "file": "libs/game-react/typedoc.json",
+              "hash": "402da59787bf2c75a0707c5be6adbc0523134bad"
             }
           ]
         }
@@ -1336,6 +1352,12 @@
               "options": {
                 "command": "npx typedoc --options libs/common/typedoc.json"
               }
+            },
+            "typedoc-server": {
+              "executor": "@nrwl/workspace:run-commands",
+              "options": {
+                "command": "npx http-server dist/docs/common"
+              }
             }
           },
           "tags": [],
@@ -1358,11 +1380,11 @@
             },
             {
               "file": "libs/common/project.json",
-              "hash": "3065be444d5cea02c7da0b6e4b2e59faa9bf6d48"
+              "hash": "0e2dc5be1742bd6aa7a2f04ef05001196d957187"
             },
             {
               "file": "libs/common/README.md",
-              "hash": "0246461f2c49545e5963fdbb5798244091246ac2"
+              "hash": "9083011100be1f151f20176009b80206fe370205"
             },
             {
               "file": "libs/common/src/index.ts",
@@ -1462,6 +1484,18 @@
                 "jestConfig": "libs/game/jest.config.ts",
                 "passWithNoTests": true
               }
+            },
+            "typedoc": {
+              "executor": "@nrwl/workspace:run-commands",
+              "options": {
+                "command": "npx typedoc --options libs/game/typedoc.json"
+              }
+            },
+            "typedoc-server": {
+              "executor": "@nrwl/workspace:run-commands",
+              "options": {
+                "command": "npx http-server dist/docs/game"
+              }
             }
           },
           "tags": [],
@@ -1484,11 +1518,11 @@
             },
             {
               "file": "libs/game/project.json",
-              "hash": "f34fde98cd743440bf24c4f845c9aa5aca5c85f6"
+              "hash": "80e01d0140b6c71df4de4e6660c77a79cbe0a575"
             },
             {
               "file": "libs/game/README.md",
-              "hash": "b8c5cfc7cd116092a59fe4f26345630adfe5a9dc"
+              "hash": "82cebff981061153c892b3b62ea516ddf6c84bc0"
             },
             {
               "file": "libs/game/src/index.ts",
@@ -1728,6 +1762,10 @@
             {
               "file": "libs/game/tsconfig.spec.json",
               "hash": "ff08addd60ff581234ec9423d2bb90f31d8166e8"
+            },
+            {
+              "file": "libs/game/typedoc.json",
+              "hash": "65dc81258eb258b31223c8aaba8c79d462bc3cf7"
             }
           ]
         }
