@@ -1,6 +1,7 @@
 import { BoardEntityId, isBoardEntityId } from './board-entity-id';
 import { BoardHeight } from './board-height';
 import { BoardLocation, isBoardLocation } from './board-location';
+import { Direction } from './direction';
 
 /**
  * A board entity is a generic type defining something that can be placed

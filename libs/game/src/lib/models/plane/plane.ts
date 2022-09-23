@@ -5,6 +5,7 @@ import { isNorthSquadron, isSouthSquadron } from './plane-squadron';
 import { PlaneId } from './plane-id';
 import { BoardY } from '../board/board-y';
 import { BoardX } from '../board/board-x';
+import { Direction } from '../board/direction';
 
 /**
  * Represents a "plane" object, which is the primary unit of play in the game.
@@ -40,6 +41,13 @@ export interface Plane extends BoardEntity<PlaneId> {
    * It shouldn't be selectable or movable at this time.
    */
   isDowned: boolean;
+
+  /**
+   * The direction the plane is facing. This is important to determine
+   * if a plane can "intercept" another plane and changes how a plane
+   * "defends" against attacks.
+   */
+  direction: Direction;
 }
 
 /**
@@ -55,6 +63,7 @@ export const createTestPlane = (plane?: Partial<Plane>): Plane => ({
   squadron: 'foo',
   downed: [],
   isDowned: false,
+  direction: 'north',
   ...plane,
 });
 
