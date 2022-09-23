@@ -1,1 +1,1 @@
-export { GameBoardHandlers } from './game-board-handlers';
+export * from './game-board-handlers';
