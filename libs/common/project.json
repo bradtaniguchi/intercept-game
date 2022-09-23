@@ -34,6 +34,12 @@
       "options": {
         "command": "npx typedoc --options libs/common/typedoc.json"
       }
+    },
+    "typedoc-server": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx http-server dist/docs/common"
+      }
     }
   },
   "tags": []
