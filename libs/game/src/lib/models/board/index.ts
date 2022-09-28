@@ -1,3 +1,4 @@
+export * from './board-cell-type';
 export * from './board-entity';
 export * from './board-entity-id';
 export * from './board-grid';
