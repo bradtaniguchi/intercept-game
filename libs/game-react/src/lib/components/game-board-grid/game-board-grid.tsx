@@ -2,7 +2,6 @@ import {
   BoardGrid,
   BoardX,
   BoardY,
-  createGrid,
   getBoardLocationString,
 } from '@intercept-game/game';
 import { GameBoardHandlers } from '../../models/game-board-handlers';
