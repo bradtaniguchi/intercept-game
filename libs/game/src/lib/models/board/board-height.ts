@@ -1,8 +1,16 @@
 /**
  * The list of board heights, represented as the BoardHeight type.
  * Used primarily for validation, see `BoardHeight` for type.
+ *
+ * **note** all "ground" icons over-ride each other. Its not possible
+ * to have multiple icons in the same square, **besides** the situation
+ * where a plane flies over a friendly AA, or a plane flies over a
+ * tombstone.
+ *
+ * In these situations the icon will need to "shrink" on the board, or
+ * present some sort of overlay.
  */
-export const BOARD_HEIGHTS = ['ground', 'aa', 'in-flight'] as const;
+export const BOARD_HEIGHTS = ['ground', 'in-flight'] as const;
 
 /**
  * The height on the board, there are only a few "heights" supported.

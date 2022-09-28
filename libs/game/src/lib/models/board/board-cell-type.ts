@@ -2,7 +2,13 @@
  * The list of cell-types. This represents what is actually
  * on the given board location at a given time.
  */
-export const BOARD_CELL_TYPE = ['plane', 'aa', 'tombstone'];
+export const BOARD_CELL_TYPE = [
+  'plane',
+  'aa',
+  'tombstone',
+  'empty',
+  'can-move',
+] as const;
 
 /**
  * The type of icon on the board.
