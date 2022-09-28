@@ -1,25 +1,45 @@
 import {
+  BoardCellType,
+  BoardHeight,
   BoardLocation,
   Direction,
   getBoardLocationString,
 } from '@intercept-game/game';
+import { Directions } from '@mui/icons-material';
 import { memo } from 'react';
+import { getIcon } from '../../utils';
 
 /**
- * The props for the cell
+ * Props for the GameBoardCell component. Changes depending on
+ * the `boardCellType` prop.
  *
- * TODO: can be more specific to different kinds of cell-ui
+ * TODO: add support for "merged" cell, which is a cell that
+ * has 2 icons, will handle a few game scenarios where
+ * a plane is flying "over" the cell.
  */
-export interface GameBoardCellProps extends BoardLocation {
+export type GameBoardCellProps =
+  | GameBoardCellPropsPlane
+  | GameBoardCellPropsOther;
+
+export interface GameBoardCellPropsPlane extends BoardLocation {
+  boardCellType: 'plane';
   /**
-   * The type of what to display in the cell itself.
-   * TODO: provide type
-   */
-  cellUI: unknown;
-  /**
-   * The direction to show the "UI".
+   * The direction the plane is facing
    */
   direction: Direction;
+  /**
+   * The "height" the plane is at.
+   */
+  boardHeight: BoardHeight;
+}
+
+/**
+ * Represents the props for all game-location states **except**
+ * the plane.
+ */
+export interface GameBoardCellPropsOther extends BoardLocation {
+  // TODO: ignore plane
+  boardCellType: BoardCellType;
 }
 
 /**
@@ -32,6 +52,14 @@ export interface GameBoardCellProps extends BoardLocation {
 export const GameBoardCell = memo(function GameBoardCell(
   props: GameBoardCellProps
 ) {
-  // TODO: handle the actual display of icons
+  const { boardCellType } = props;
+
+  let Icon: JSX.Element | null;
+  if (boardCellType === 'plane') {
+    Icon = getIcon(props as GameBoardCellPropsPlane);
+  }
+  if (boardCellType !== 'plane') {
+    Icon = getIcon(props as GameBoardCellPropsOther);
+  }
   return <div>{getBoardLocationString(props)}</div>;
 });

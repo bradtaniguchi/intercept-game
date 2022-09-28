@@ -1,5 +1,4 @@
-import { BoardCellType, BoardHeight } from '@intercept-game/game';
-import { Direction } from '@mui/material';
+import { BoardCellType, BoardHeight, Direction } from '@intercept-game/game';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faJetFighter,
