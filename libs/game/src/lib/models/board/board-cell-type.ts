@@ -5,7 +5,7 @@
 export const BOARD_CELL_TYPE = [
   'plane',
   'aa',
-  'tombstone',
+  'bones',
   'empty',
   'can-move',
 ] as const;

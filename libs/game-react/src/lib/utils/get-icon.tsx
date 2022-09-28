@@ -1,5 +1,13 @@
 import { BoardCellType, BoardHeight } from '@intercept-game/game';
 import { Direction } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faJetFighter,
+  faCloud,
+  faSquare,
+  faBurst,
+  faSkullCrossbones,
+} from '@fortawesome/free-solid-svg-icons';
 
 /**
  * Returns the icon for the given cell-type.
@@ -9,17 +17,24 @@ import { Direction } from '@mui/material';
  */
 export function getIcon(params: GetIconParams) {
   const { boardCellType } = params;
-  return (
-    (
-      {
-        empty: {},
-        'can-move': {},
-        aa: {},
-        plane: {},
-        tombstone: {},
-      } as Record<BoardCellType, unknown>
-    )[boardCellType] || null
-  );
+
+  switch (boardCellType) {
+    case 'empty':
+      return <FontAwesomeIcon icon={faCloud} />;
+    case 'can-move':
+      return <FontAwesomeIcon icon={faSquare} />;
+    case 'plane':
+      // TODO: add rotation
+      return <FontAwesomeIcon icon={faJetFighter} />;
+    case 'aa':
+      return <FontAwesomeIcon icon={faBurst} />;
+    case 'bones':
+      return <FontAwesomeIcon icon={faSkullCrossbones} />;
+    default:
+      // This should result in an error at a higher level.
+      // also this should be tested against.
+      return null;
+  }
 }
 
 /**
@@ -30,7 +45,7 @@ export type GetIconParams =
   | GetIconForCanMove
   | GetIconForPlane
   | GetIconForAA
-  | GetIconForTombstone;
+  | GetIconForBones;
 
 /**
  * Base type all other `GetIconParams` objects
@@ -97,10 +112,12 @@ export interface GetIconForAA extends GetIconBase {
 
 /**
  * Params for the situation where we want to get the icon
- * for a tombstone board-cell-type.
+ * for a "bones" board-cell-type.
  *
  * This wasn't available in the previous version of the game.
+ *
+ * This represents where a plane got eliminated from the board.
  */
-export interface GetIconForTombstone extends GetIconBase {
-  boardCellType: 'tombstone';
+export interface GetIconForBones extends GetIconBase {
+  boardCellType: 'bones';
 }
