@@ -15,4 +15,10 @@ Run `nx test game-react` to execute the unit tests via [Jest](https://jestjs.io)
 
 Run `nx run game-react:storybook` to execute the local storybook project.
 
-<!-- white space change to trigger nx -->
+## Building typedocs:
+
+Run: `npx nx run game-react:typedoc` to generate the typedocs for this library.
+
+### Running typedocs locally:
+
+Run `npx nx run game-react:typedoc-server`
