@@ -4,8 +4,9 @@ import {
   BoardLocation,
   Direction,
   getBoardLocationString,
+  isNonPlaneBoardCellType,
+  isPlaneBoardCellType,
 } from '@intercept-game/game';
-import { Directions } from '@mui/icons-material';
 import { memo } from 'react';
 import { getIcon } from '../../utils';
 
@@ -38,8 +39,7 @@ export interface GameBoardCellPropsPlane extends BoardLocation {
  * the plane.
  */
 export interface GameBoardCellPropsOther extends BoardLocation {
-  // TODO: ignore plane
-  boardCellType: BoardCellType;
+  boardCellType: Exclude<BoardCellType, 'plane'>;
 }
 
 /**
@@ -54,12 +54,12 @@ export const GameBoardCell = memo(function GameBoardCell(
 ) {
   const { boardCellType } = props;
 
-  let Icon: JSX.Element | null;
-  if (boardCellType === 'plane') {
-    Icon = getIcon(props as GameBoardCellPropsPlane);
+  let icon: JSX.Element | null = null;
+  if (isPlaneBoardCellType(boardCellType)) {
+    icon = getIcon(props as GameBoardCellPropsPlane);
   }
-  if (boardCellType !== 'plane') {
-    Icon = getIcon(props as GameBoardCellPropsOther);
+  if (isNonPlaneBoardCellType(boardCellType)) {
+    icon = getIcon(props as GameBoardCellPropsOther);
   }
-  return <div>{getBoardLocationString(props)}</div>;
+  return <div data-pos={getBoardLocationString(props)}>{icon}</div>;
 });
