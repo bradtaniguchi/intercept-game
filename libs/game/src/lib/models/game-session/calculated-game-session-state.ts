@@ -1,5 +1,4 @@
 import { BoardCellType, BoardGrid } from '../board';
-import { Plane } from '../plane';
 import { PlaneId } from '../plane/plane-id';
 import { Faction } from './faction';
 import { GameSessionStateLive } from './game-session-state';

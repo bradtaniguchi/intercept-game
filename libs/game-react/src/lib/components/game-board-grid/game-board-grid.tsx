@@ -1,4 +1,5 @@
 import {
+  BoardCellType,
   BoardGrid,
   BoardX,
   BoardY,
@@ -12,9 +13,8 @@ export interface GameBoardGridProps {
    * The board-grid data, that represents what is shown
    * in each cell.
    *
-   * TODO: Add type representing a BoardGridCell
    */
-  boardGrid: BoardGrid<unknown>;
+  boardGrid: BoardGrid<BoardCellType>;
 
   /**
    * Global game-action handlers. These are called from individual cells
@@ -45,10 +45,12 @@ export function GameBoardGrid(props: GameBoardGridProps) {
               x: BoardX(x),
               y: BoardY(y),
             })}
-            cellUI=""
-            direction="north"
             x={BoardX(x)}
             y={BoardY(y)}
+            // TODO: change the following to be loaded from the game-state.
+            boardCellType={boardGrid[y][x]}
+            boardHeight="ground"
+            direction="north"
           />
         ))
       )}
