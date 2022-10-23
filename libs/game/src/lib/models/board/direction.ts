@@ -9,6 +9,12 @@ export const DIRECTIONS = ['north', 'south', 'east', 'west'] as const;
 export type Direction = typeof DIRECTIONS[number];
 
 /**
+ * Function that can be used to create a Direction from a string.
+ */
+export const Direction = (direction: string): Direction =>
+  direction as Direction;
+
+/**
  * Type guard for directions.
  */
 export const isDirection = (direction: unknown): direction is Direction =>

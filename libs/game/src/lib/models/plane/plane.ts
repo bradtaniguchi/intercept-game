@@ -1,11 +1,12 @@
 import { Faction } from '../game-session/faction';
 import { BoardEntity } from '../board/board-entity';
-import { PlaneSquadron } from './plane-squadron';
+import { PlaneSquadron, UnknownSquadronError } from './plane-squadron';
 import { isNorthSquadron, isSouthSquadron } from './plane-squadron';
 import { PlaneId } from './plane-id';
 import { BoardY } from '../board/board-y';
 import { BoardX } from '../board/board-x';
 import { Direction } from '../board/direction';
+import { GameMove } from '../game-session/game-move';
 
 /**
  * Represents a "plane" object, which is the primary unit of play in the game.
@@ -84,7 +85,7 @@ export const isDoubleAce = (plane: Plane): boolean => plane.downed.length > 1;
 export const getFaction = (plane: Plane): Faction => {
   if (isNorthSquadron(plane.squadron)) return 'north';
   if (isSouthSquadron(plane.squadron)) return 'south';
-  throw new Error(`Unknown squadron: ${plane.squadron}`);
+  throw new UnknownSquadronError(plane.squadron);
 };
 
 /**
@@ -98,3 +99,31 @@ export const getRefitCardCount = (plane: Plane) => {
 
   return 4;
 };
+
+/**
+ * Utility function that returns a new data object representing
+ * the updated plane from the given move.
+ *
+ * Will perform internal sanity check to prevent updates
+ * against a different plane.
+ *
+ * TODO: this needs to be updated to handle different kinds of moves
+ * currently this only handles move+direction updates
+ * @unstable
+ */
+export const updatePlaneWithMove = ({
+  plane,
+  move,
+}: {
+  plane: Plane;
+  move: GameMove;
+}): Plane =>
+  plane.id === move.plane
+    ? {
+        ...plane,
+        // TODO: handle other types of moves
+        direction: move.direction,
+        x: move.newLocation.x,
+        y: move.newLocation.y,
+      }
+    : plane;

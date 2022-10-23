@@ -7,13 +7,15 @@ import { isPlaneId, PlaneId } from '../plane/plane-id';
 import { createGameMoveId, GameMoveId } from './game-move-id';
 import { BoardX } from '../board/board-x';
 import { BoardY } from '../board/board-y';
+import { Faction } from './faction';
 
 /**
  * Represents a move within a game-session. Multiple of these
  * create the overall history of a match.
  *
  * TODO: Update with Plane move info, and provide utilities related
- * to this move.
+ * to this move, such as attacking, and other "phased" states.
+ *
  */
 export interface GameMove {
   /**
@@ -36,6 +38,19 @@ export interface GameMove {
    * This matters in dog-fights.
    */
   direction: Direction;
+
+  /**
+   * The player who made the move.
+   *
+   * TODO: change to player-id.
+   */
+  player: string;
+
+  /**
+   * The faction who made the move. This is denormalized for simplicity, as
+   * the player-id could be used instead.
+   */
+  faction: Faction;
 }
 
 /**
@@ -56,6 +71,8 @@ export const createGameMove = ({
   plane,
   newLocation,
   direction,
+  faction,
+  player,
 }: {
   /**
    * The plane or plane-id that is being moved.
@@ -75,6 +92,16 @@ export const createGameMove = ({
    * The direction the plane will be facing.
    */
   direction: Direction;
+  /**
+   * Who made the move
+   */
+  faction: Faction;
+  /**
+   * The player who made the move
+   *
+   * TODO: Migrate to playerId
+   */
+  player: string;
 }): GameMove => ({
   id: createGameMoveId(),
   plane: getId(plane),
@@ -91,4 +118,6 @@ export const createGameMove = ({
     };
   })(),
   direction,
+  faction,
+  player,
 });

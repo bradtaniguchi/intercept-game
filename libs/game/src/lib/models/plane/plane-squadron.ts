@@ -1,3 +1,5 @@
+import { Faction } from '../game-session';
+
 /**
  * The squadrons on the "north" part of the board, in the traditional board game,
  * this was the German air-force.
@@ -7,7 +9,7 @@
  * However, for this game we will give them the more generic/non-ww1 themed names of
  * "foo" and "bar" squadron.
  */
-export const NORTH_SQUADRONS = ['foo', 'bar'];
+export const NORTH_SQUADRONS = ['foo', 'bar'] as const;
 
 /**
  * The north squadron types.
@@ -32,7 +34,7 @@ export const isNorthSquadron = (squadron: unknown): squadron is NorthSquadron =>
  * However, for this game we will give them the more generic/non-ww1 themed names of
  * "alpha" and "beta" squadron.
  */
-export const SOUTH_SQUADRONS = ['alpha', 'beta'];
+export const SOUTH_SQUADRONS = ['alpha', 'beta'] as const;
 
 /**
  * The South Squadron types.
@@ -58,7 +60,7 @@ export const PLANE_SQUADRONS = [...NORTH_SQUADRONS, ...SOUTH_SQUADRONS];
 /**
  * The plane squadron type, includes both factions.
  */
-export type PlaneSquadron = typeof NORTH_SQUADRONS[number];
+export type PlaneSquadron = typeof PLANE_SQUADRONS[number];
 
 /**
  * If the given squadron is a plane squadron.
@@ -66,3 +68,23 @@ export type PlaneSquadron = typeof NORTH_SQUADRONS[number];
 export const isPlaneSquadron = (squadron: unknown): squadron is PlaneSquadron =>
   typeof squadron === 'string' &&
   PLANE_SQUADRONS.includes(squadron as PlaneSquadron);
+
+/**
+ * Error thrown when the code runs into an unexpected squadron.
+ */
+export class UnknownSquadronError extends Error {
+  constructor(squadron: string) {
+    super(`Unknown squadron: ${squadron}`);
+  }
+}
+
+/**
+ * Utility function that returns the faction from the given squadron.
+ *
+ * Will throw an `UnknownSquadronError` if given an invalid squadron.
+ */
+export const getFactionFromSquadron = (squadron: PlaneSquadron): Faction => {
+  if (isNorthSquadron(squadron)) return 'north';
+  if (isSouthSquadron(squadron)) return 'south';
+  throw new UnknownSquadronError(squadron);
+};

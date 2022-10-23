@@ -1,6 +1,7 @@
 import { BoardCellType, BoardGrid } from '../board';
 import { PlaneId } from '../plane/plane-id';
 import { Faction } from './faction';
+import { GameMove } from './game-move';
 import { GameSessionStateLive } from './game-session-state';
 
 /**
@@ -56,6 +57,21 @@ export interface CalculatedGameSessionState extends GameSessionStateLive {
   };
 
   /**
+   * Map of moves for each plane. Useful to show the history
+   * of moves made by a given plane.
+   *
+   * TODO: move nested property elsewhere
+   */
+  planeMoves: {
+    north: {
+      planes: Record<PlaneId, GameMove[]>;
+    };
+    south: {
+      planes: Record<PlaneId, GameMove[]>;
+    };
+  };
+
+  /**
    * The current calculated boardGrid display.
    *
    * This should be the primary source of truth in regards to what is
@@ -63,3 +79,56 @@ export interface CalculatedGameSessionState extends GameSessionStateLive {
    */
   boardGrid: BoardGrid<BoardCellType>;
 }
+
+/**
+ * Returns default empty CalculatedGameSessionState.
+ *
+ * Useful for testing, and initializing an "empty" state. This shouldn't be used
+ * beyond initialization, as a complete empty-state isn't realistic.
+ *
+ * Most "defaulted" settings will be defaulted to the "north" faction, such as
+ * the first move. There are no planes or aa on the board.
+ */
+export const getEmptyCalculatedGameSessionState = (
+  state?: Partial<CalculatedGameSessionState>
+): CalculatedGameSessionState => ({
+  boardGrid: [],
+  cards: {
+    north: [],
+    south: [],
+  },
+  currentMove: 'north',
+  currentPlanes: {
+    north: {
+      downed: [],
+      grounded: [],
+      inFlight: [],
+    },
+    south: {
+      downed: [],
+      grounded: [],
+      inFlight: [],
+    },
+  },
+  firstMove: 'north',
+  gameSessionStateType: 'live',
+  movePhase: 'takeoff',
+  moves: [],
+  planes: {
+    north: [],
+    south: [],
+  },
+  players: {
+    north: '',
+    south: '',
+  },
+  planeMoves: {
+    north: {
+      planes: {},
+    },
+    south: {
+      planes: {},
+    },
+  },
+  ...state,
+});

@@ -52,6 +52,17 @@ export interface GameSessionStateBase {
     north: Array<Plane>;
     south: Array<Plane>;
   };
+
+  /**
+   * Object representing the ids of the players within the game.
+   * User information might be saved here later.
+   */
+  players: {
+    // TODO: update to player-id
+    north: string;
+    // TODO: update to player-id
+    south: string;
+  };
 }
 
 /**

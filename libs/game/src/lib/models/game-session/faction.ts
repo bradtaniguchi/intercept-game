@@ -20,3 +20,48 @@ export type Faction = typeof FACTIONS[number];
  */
 export const isFaction = (faction: unknown): faction is Faction =>
   FACTIONS.includes(faction as Faction);
+
+/**
+ * Utility function that returns if the given faction is the "north"
+ * faction. Provided for usability.
+ *
+ * Will throw an UnknownFactionError if given an unknown faction.
+ */
+export const isNorth = (faction: Faction): faction is 'north' => {
+  if (!isFaction(faction)) throw new UnknownFactionError(faction);
+  return faction === 'north';
+};
+
+/**
+ * Utility function that returns if the given faction is the "south"
+ * faction. Provided for usability.
+ *
+ * Will throw an UnknownFactionError if given an unknown faction.
+ */
+export const isSouth = (faction: Faction): faction is 'south' => {
+  if (!isFaction(faction)) throw new UnknownFactionError(faction);
+  return faction === 'south';
+};
+
+/**
+ * Error thrown when an unknown faction is given
+ */
+export class UnknownFactionError extends Error {
+  /**
+   * @param unknownFaction the unknown faction, will be provided in error message
+   */
+  constructor(unknownFaction: string) {
+    super(`Unknown action provided: ${unknownFaction}`);
+  }
+}
+
+/**
+ * Utility function that returns the "other" faction from the given one.
+ *
+ * Will throw an error if given an unknown faction.
+ */
+export const getAltFaction = (faction: Faction): Faction => {
+  if (!isFaction(faction)) throw new Error('Unknown Faction');
+  if (faction === 'north') return 'south';
+  return 'north';
+};
