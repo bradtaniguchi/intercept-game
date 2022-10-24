@@ -1,12 +1,17 @@
-import { Faction } from '../game-session/faction';
 import { BoardEntity } from '../board/board-entity';
-import { PlaneSquadron, UnknownSquadronError } from './plane-squadron';
-import { isNorthSquadron, isSouthSquadron } from './plane-squadron';
-import { PlaneId } from './plane-id';
-import { BoardY } from '../board/board-y';
 import { BoardX } from '../board/board-x';
+import { BoardY } from '../board/board-y';
 import { Direction } from '../board/direction';
+import { Faction } from '../game-session/faction';
 import { GameMove } from '../game-session/game-move';
+import { PlayerId } from '../player/player-id';
+import { PlaneId } from './plane-id';
+import {
+  isNorthSquadron,
+  isSouthSquadron,
+  PlaneSquadron,
+  UnknownSquadronError,
+} from './plane-squadron';
 
 /**
  * Represents a "plane" object, which is the primary unit of play in the game.
@@ -14,9 +19,8 @@ import { GameMove } from '../game-session/game-move';
 export interface Plane extends BoardEntity<PlaneId> {
   /**
    * The player this plane belongs to.
-   * TODO: update to player-id
    */
-  player: string;
+  player: PlayerId;
 
   /**
    * The squadron this plane belongs to.
@@ -60,7 +64,7 @@ export const createTestPlane = (plane?: Partial<Plane>): Plane => ({
   x: BoardX(0),
   y: BoardY(0),
   height: 'in-flight',
-  player: 'test-player',
+  player: PlayerId('test-player'),
   squadron: 'foo',
   downed: [],
   isDowned: false,

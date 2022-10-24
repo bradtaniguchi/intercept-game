@@ -1,13 +1,13 @@
 import { getId } from '@intercept-game/common';
-import { isGameMoveId } from './game-move-id';
 import { BoardLocation, isBoardLocation } from '../board/board-location';
+import { BoardX } from '../board/board-x';
+import { BoardY } from '../board/board-y';
 import { Direction, isDirection } from '../board/direction';
 import { Plane } from '../plane/plane';
 import { isPlaneId, PlaneId } from '../plane/plane-id';
-import { createGameMoveId, GameMoveId } from './game-move-id';
-import { BoardX } from '../board/board-x';
-import { BoardY } from '../board/board-y';
+import { PlayerId } from '../player/player-id';
 import { Faction } from './faction';
+import { createGameMoveId, GameMoveId, isGameMoveId } from './game-move-id';
 
 /**
  * Represents a move within a game-session. Multiple of these
@@ -41,10 +41,8 @@ export interface GameMove {
 
   /**
    * The player who made the move.
-   *
-   * TODO: change to player-id.
    */
-  player: string;
+  player: PlayerId;
 
   /**
    * The faction who made the move. This is denormalized for simplicity, as
@@ -98,10 +96,8 @@ export const createGameMove = ({
   faction: Faction;
   /**
    * The player who made the move
-   *
-   * TODO: Migrate to playerId
    */
-  player: string;
+  player: PlayerId;
 }): GameMove => ({
   id: createGameMoveId(),
   plane: getId(plane),

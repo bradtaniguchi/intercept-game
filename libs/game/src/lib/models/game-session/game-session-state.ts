@@ -1,5 +1,6 @@
 import { PlaneCard } from '../card';
 import { Plane } from '../plane';
+import { PlayerId } from '../player';
 import { Faction } from './faction';
 import { GameMove } from './game-move';
 
@@ -58,10 +59,8 @@ export interface GameSessionStateBase {
    * User information might be saved here later.
    */
   players: {
-    // TODO: update to player-id
-    north: string;
-    // TODO: update to player-id
-    south: string;
+    north: PlayerId;
+    south: PlayerId;
   };
 }
 
