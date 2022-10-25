@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 
 /**
- * The length of a game-session id.
+ * The length of a game-turn id.
  */
 export const GAME_MOVE_ID_LENGTH = 8;
 

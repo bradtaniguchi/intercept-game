@@ -2,7 +2,8 @@ import { PlaneCard } from '../card';
 import { Plane } from '../plane';
 import { PlayerId } from '../player';
 import { Faction } from './faction';
-import { GameMove } from './game-move';
+import { GameSession } from './game-session';
+import { GameTurn } from './game-turn';
 
 /**
  * The GameSessionState represents the on-going state of the game. This does not
@@ -27,12 +28,12 @@ export type GameSessionState = GameSessionStateLive | GameSessionStateFinished;
  * @see GameSessionStateLive
  * @see GameSessionStateFinished
  */
-export interface GameSessionStateBase {
+export interface GameSessionStateBase extends GameSession {
   /**
-   * The list of moves made within the game. Initially starts
+   * The list of turns made within the game. Initially starts
    * as an empty array when no player has made a move yet.
    */
-  moves: GameMove[];
+  turns: GameTurn[];
 
   /**
    * Which faction will make or has made the first move.
@@ -132,3 +133,9 @@ export const isGameSessionStateFinished = (
   state: GameSessionState
 ): state is GameSessionStateFinished =>
   state.gameSessionStateType === 'finished';
+
+/**
+ * Returns if the game is in its "first-move"
+ */
+export const isGameFirstMove = (game: GameSessionStateLive): boolean =>
+  !!game.turns?.length;

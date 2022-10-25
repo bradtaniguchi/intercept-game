@@ -11,5 +11,3 @@ export interface GameSession {
    */
   id: GameSessionId;
 }
-
-// TODO: add other "mixed" types.

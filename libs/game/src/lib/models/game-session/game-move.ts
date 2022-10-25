@@ -5,13 +5,17 @@ import { BoardY } from '../board/board-y';
 import { Direction, isDirection } from '../board/direction';
 import { Plane } from '../plane/plane';
 import { isPlaneId, PlaneId } from '../plane/plane-id';
-import { PlayerId } from '../player/player-id';
+import { isPlayerId, PlayerId } from '../player/player-id';
 import { Faction } from './faction';
 import { createGameMoveId, GameMoveId, isGameMoveId } from './game-move-id';
+import { Roll } from './roll';
 
 /**
- * Represents a move within a game-session. Multiple of these
- * create the overall history of a match.
+ * Represents a plane move within a game-session. Multiple of these
+ * make up a single persons turn.
+ *
+ * GameMoves represent an already in-flight plane move to another position
+ * based on the dice roll
  *
  * TODO: Update with Plane move info, and provide utilities related
  * to this move, such as attacking, and other "phased" states.
@@ -45,10 +49,13 @@ export interface GameMove {
   player: PlayerId;
 
   /**
-   * The faction who made the move. This is denormalized for simplicity, as
-   * the player-id could be used instead.
+   * The roll made for this move.
    */
-  faction: Faction;
+  roll: Roll;
+  /**
+   * Which dice was used for this GameMove.
+   */
+  die: 0 | 1;
 }
 
 /**
@@ -58,7 +65,8 @@ export const isGameMove = (move: unknown): move is GameMove =>
   isGameMoveId((move as GameMove).id) &&
   isPlaneId((move as GameMove).plane) &&
   isBoardLocation((move as GameMove).newLocation) &&
-  isDirection((move as GameMove).direction);
+  isDirection((move as GameMove).direction) &&
+  isPlayerId((move as GameMove).id);
 
 /**
  * Factory function to create a new game-move, providing
@@ -69,8 +77,9 @@ export const createGameMove = ({
   plane,
   newLocation,
   direction,
-  faction,
   player,
+  roll,
+  die,
 }: {
   /**
    * The plane or plane-id that is being moved.
@@ -98,6 +107,14 @@ export const createGameMove = ({
    * The player who made the move
    */
   player: PlayerId;
+  /**
+   * The roll the user made for this move.
+   */
+  roll: Roll;
+  /**
+   * Which dice was used for this move.
+   */
+  die: 0 | 1;
 }): GameMove => ({
   id: createGameMoveId(),
   plane: getId(plane),
@@ -114,6 +131,7 @@ export const createGameMove = ({
     };
   })(),
   direction,
-  faction,
   player,
+  roll,
+  die,
 });
