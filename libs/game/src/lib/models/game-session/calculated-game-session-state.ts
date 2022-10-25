@@ -1,7 +1,9 @@
 import { BoardCellType, BoardGrid } from '../board';
 import { PlaneId } from '../plane/plane-id';
+import { PlayerId } from '../player';
 import { Faction } from './faction';
 import { GameMove } from './game-move';
+import { createGameSessionId, GameSessionId } from './game-session-id';
 import { GameSessionStateLive } from './game-session-state';
 
 /**
@@ -88,10 +90,14 @@ export interface CalculatedGameSessionState extends GameSessionStateLive {
  *
  * Most "defaulted" settings will be defaulted to the "north" faction, such as
  * the first move. There are no planes or aa on the board.
+ *
+ * This requires the `players` property, as these need to be generated elsewhere.
  */
 export const getEmptyCalculatedGameSessionState = (
-  state?: Partial<CalculatedGameSessionState>
+  state?: Partial<CalculatedGameSessionState> &
+    Pick<CalculatedGameSessionState, 'players'>
 ): CalculatedGameSessionState => ({
+  id: createGameSessionId(),
   boardGrid: [],
   cards: {
     north: [],
@@ -113,14 +119,10 @@ export const getEmptyCalculatedGameSessionState = (
   firstMove: 'north',
   gameSessionStateType: 'live',
   movePhase: 'takeoff',
-  moves: [],
+  turns: [],
   planes: {
     north: [],
     south: [],
-  },
-  players: {
-    north: '',
-    south: '',
   },
   planeMoves: {
     north: {
