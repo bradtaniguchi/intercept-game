@@ -2,7 +2,7 @@ import { getFactionFromSquadron } from '.';
 import { Direction } from '../board';
 import { BoardX } from '../board/board-x';
 import { BoardY } from '../board/board-y';
-import { createGameMove } from '../game-session';
+import { createGameMove, createRollId, RollId } from '../game-session';
 import { createTestPlane, updatePlaneWithMove } from './plane';
 import { PlaneId } from './plane-id';
 
@@ -18,6 +18,8 @@ describe('updatePlaneWithMove', () => {
         x: BoardX(3),
         y: BoardY(5),
       },
+      die: 0,
+      roll: { dice: [3, 1], id: createRollId() },
     });
     const updatedPlane = updatePlaneWithMove({
       plane,
@@ -40,6 +42,8 @@ describe('updatePlaneWithMove', () => {
       plane,
       faction: getFactionFromSquadron(plane.squadron),
       player: plane.player,
+      die: 0,
+      roll: { dice: [3, 1], id: createRollId() },
       ...expected,
     });
     const updatedPlane = updatePlaneWithMove({

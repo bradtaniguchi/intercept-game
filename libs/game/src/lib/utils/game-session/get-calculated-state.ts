@@ -10,6 +10,7 @@ import {
 } from '../../models/game-session/faction';
 import { updatePlaneWithMove } from '../../models/plane/plane';
 import { getPlayerFaction } from '../get-player-faction';
+import { getMovePhase } from '../get-move-phase';
 
 /**
  * Utility function that returns the CalculatedGameState from the
@@ -24,12 +25,12 @@ export const getCalculatedState = (
   const calculatedState = state.turns.reduce(
     // use a named function to help with "debugability"
     function getCalculatedStateFunc(acc, turn) {
-      const { moves, player } = turn; // TODO: add other logic
+      const { moves, intercepts, player } = turn; // TODO: add other logic
       const faction = getPlayerFaction({ player, gameSessionState: state });
+      acc.currentMove = getAltFaction(faction);
 
       // use named function to help with "debugability"
-      moves.forEach(function getCalculatedStateFuncFromMove(move) {
-        acc.currentMove = getAltFaction(faction);
+      moves.forEach(function forEachMove(move) {
         acc.planes = {
           north: isNorth(faction)
             ? acc.planes.north.map((plane) =>
@@ -52,6 +53,12 @@ export const getCalculatedState = (
               )
             : acc.planes.south,
         };
+
+        intercepts.forEach(function forEachIntercept() {
+          // TODO:
+          // for each intercept, determine the result, and update the plane(s)
+        });
+        acc.movePhase = getMovePhase({ turn });
       });
       // TODO: update other properties
       return acc;

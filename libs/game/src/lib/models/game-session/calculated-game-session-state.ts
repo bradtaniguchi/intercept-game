@@ -4,6 +4,7 @@ import { Faction } from './faction';
 import { GameMove } from './game-move';
 import { createGameSessionId } from './game-session-id';
 import { GameSessionStateLive } from './game-session-state';
+import { GameSessionStateMovePhase } from './game-session-state-move-phase';
 
 /**
  * Represents the calculated GameSessionState for a "live" game.
@@ -33,12 +34,7 @@ export interface CalculatedGameSessionState extends GameSessionStateLive {
    *   RNG roll calculations.
    * - opponent - essentially disables all possible moves.
    */
-  movePhase:
-    | 'takeoff'
-    | 'in-flight'
-    | 'in-intercept'
-    | 'in-ground-attack'
-    | 'opponent';
+  movePhase: GameSessionStateMovePhase;
 
   /**
    * Object representing the status of all the planes for both factions

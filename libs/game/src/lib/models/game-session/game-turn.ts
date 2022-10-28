@@ -55,15 +55,18 @@ export const isGameTurn = (gameTurn: unknown): gameTurn is GameTurn =>
  * @see GameTurn
  */
 export const createGameTurn = ({
+  id,
   player,
   moves,
+  intercepts,
 }: {
+  id?: GameTurnId;
   player: PlayerId;
   moves?: GameMove[];
   intercepts?: GameInterceptEvent[];
 }): GameTurn => ({
-  id: createGameTurnId(),
+  id: id ?? createGameTurnId(),
   moves: moves ?? [],
-  intercepts: [],
+  intercepts: intercepts ?? [],
   player,
 });
